@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="cn.edu.neusoft.meal.mapper.UserDao">
+<select id="getUserByNameAndPassword" parameterType="cn.edu.neusoft.meal.domain.User"
+resultType="cn.edu.neusoft.meal.domain.User">
+select * from user where username=#{userName} and pwd=#{password}
+</select>
+ <select id="findUser"
+ resultType="cn.edu.neusoft.meal.domain.User"
+ >
+ select * from user
+         WHERE userName like #{0}
+     limit #{1},5
+ </select>
+    <insert id="addUser" parameterType="cn.edu.neusoft.meal.domain.User">
+      INSERT INTO user VALUES (#{id},#{password},#{userName},0)
+    </insert>
+    <select id="getMaxId" resultType="java.lang.Integer">
+        select max(id) from user
+    </select>
+    <delete id="delUser" parameterType="int" >
+        delete from user where id=#{del_id}
+    </delete>
+    <select id="findUserByid" resultType="cn.edu.neusoft.meal.domain.User">
+        SELECT * FROM user WHERE id=#{id}
+    </select>
+
+    <select id="getUserCount" resultType="long">
+        select count(*) as m from user
+        WHERE userName LIKE #{0}
+    </select>
+
+    <update id="editUser" parameterType="cn.edu.neusoft.meal.domain.User">
+        UPDATE user SET userName=#{userName},password=#{password},ident=#{ident}
+        WHERE id=#{id}
+    </update>
+</mapper>
