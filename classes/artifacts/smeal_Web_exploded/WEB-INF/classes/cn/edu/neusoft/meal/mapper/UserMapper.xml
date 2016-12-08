@@ -6,7 +6,7 @@
 <mapper namespace="cn.edu.neusoft.meal.mapper.UserDao">
 <select id="getUserByNameAndPassword" parameterType="cn.edu.neusoft.meal.domain.User"
 resultType="cn.edu.neusoft.meal.domain.User">
-select * from user where username=#{userName} and pwd=#{password}
+select * from user where username=#{userName} and password=#{password}
 </select>
  <select id="findUser"
  resultType="cn.edu.neusoft.meal.domain.User"

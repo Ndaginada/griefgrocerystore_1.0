@@ -78,38 +78,38 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${foods}" var="food">
+					<c:forEach items="${letters}" var="letter">
 						<tr>
 							<th>
-								${food.id}
+								${letter.id}
 							</th>
 							<td>
-								${food.foodName}
+								${letter.foodName}
 							</td>
 							<td>
-									${food.feature}
+									${letter.feature}
 							</td>
 							<td>
-									${food.material}
+									${letter.material}
 							</td>
 							<td>
-									${food.price}元
+									${letter.price}元
 							</td>
 							<td>
-								${food.type}
+								${letter.type}
 							</td>
 							<td>
-								<img class="img-rounded" src="${pageContext.servletContext.contextPath}/${food.picture}" />
+								<img class="img-rounded" src="${pageContext.servletContext.contextPath}/${letter.picture}" />
 							</td>
 							<td>
-								${food.hits}次
+								${letter.hits}次
 							</td>
 							<td>
-								${food.comment}
+								${letter.comment}
 							</td>
 							<td>
-								<a class="btn btn-xs btn-warning" data-toggle="tooltip" title="修改菜品" href="/mealsystem/admin/food_edit_form.html?id=${food.id}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<button type="button" class="btn btn-xs btn-danger"  data-toggle="modal" data-toggle="tooltip" onclick="delConfirm('${food.id}')" title="删除菜品"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+								<a class="btn btn-xs btn-warning" data-toggle="tooltip" title="修改菜品" href="/mealsystem/admin/food_edit_form.html?id=${letter.id}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<button type="button" class="btn btn-xs btn-danger"  data-toggle="modal" data-toggle="tooltip" onclick="delConfirm('${letter.id}')" title="删除菜品"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 							</td>
 						</tr>
 					</c:forEach>

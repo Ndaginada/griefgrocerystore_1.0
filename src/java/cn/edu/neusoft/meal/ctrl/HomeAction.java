@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.edu.neusoft.meal.domain.User;
-import cn.edu.neusoft.meal.service.FoodService;
+import cn.edu.neusoft.meal.service.LetterService;
 import cn.edu.neusoft.meal.service.UserService;
 
 @Controller
 public class HomeAction {
+	//nihao
 	@Autowired
-	private FoodService foodService;
+	private LetterService letterService;
 	@Autowired
 	private UserService userService;
 	@RequestMapping("/index")
@@ -58,6 +59,7 @@ public class HomeAction {
 					} else {
 						// 登录成功
 						String ident = (String) getUser.getIdent();
+
 						// 用session保存用户的登录信息
 						session.setAttribute("loginName", getUser.getUserName());
 						session.setAttribute("ident", ident);
