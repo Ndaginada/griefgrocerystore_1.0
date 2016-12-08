@@ -13,14 +13,14 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class HomeAction {
-	//hi
+	//hi test Github
 	@Autowired
 	private LetterService letterService;
 	@Autowired
 	private UserService userService;
 	@RequestMapping("/index")
 	public ModelAndView indexre(){
-		ModelAndView mv=new ModelAndView("index");
+		ModelAndView mv=new ModelAndView("redirect");
 		return mv;
 	}
 
@@ -32,7 +32,7 @@ public class HomeAction {
 
 	@RequestMapping("/griefgrocerystore/hello")
 	public ModelAndView homepage(){
-		ModelAndView mv=new ModelAndView("griefgrocerystore/hello");
+		ModelAndView mv=new ModelAndView("griefgrocerystore/user/user_index");
 		return mv;
 	}
 
@@ -63,10 +63,10 @@ public class HomeAction {
 						session.setAttribute("loginName", getUser.getUserName());
 						session.setAttribute("ident", ident);
 						if (ident.equals("1")) {
-							 mv=new ModelAndView("/griefgrocerystore/admin/index");
+							 mv=new ModelAndView("griefgrocerystore/admin/admin_index");
 						} else {
 							// 普通用户
-							mv=new ModelAndView("/griefgrocerystore/hello");
+							mv=new ModelAndView("griefgrocerystore/user/user_index");
 						}
 					}
 		return mv;
@@ -80,7 +80,7 @@ public class HomeAction {
 
 	@RequestMapping("/griefgrocerystore/register_form")
 	public ModelAndView register_form(HttpSession session){
-		ModelAndView mv=new ModelAndView("griefgrocerystore/zhuce");
+		ModelAndView mv=new ModelAndView("griefgrocerystore/user/user_register");
 		return mv;
 	}
 
@@ -102,7 +102,7 @@ public class HomeAction {
 
 	@RequestMapping("/griefgrocerystore/beforReg")
 	public ModelAndView beforReg(){
-		ModelAndView mv=new ModelAndView("griefgrocerystore/loginBeforReg");
+		ModelAndView mv=new ModelAndView("griefgrocerystore/user/user_later_login");
 		return mv;
 	}
 

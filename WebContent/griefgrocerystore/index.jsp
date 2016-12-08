@@ -45,9 +45,9 @@
 			<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 			<div id="fh5co-logo">
 				<a  data-toggle="modal" data-target="#myModal2" class="btn">登录</a>
-				<!-- <a href="weilaijisuanqi.jsp">未来计算器<span>.</span></a>
-				<a href="liaotian.jsp">聊天机器人<span>.</span></a>
-				<a href="xiexin.jsp">写信<span>.</span></a> -->
+				<!-- <a href="user_future.jsp">未来计算器<span>.</span></a>
+				<a href="user_chat.jsp">聊天机器人<span>.</span></a>
+				<a href="user_write.jsp">写信<span>.</span></a> -->
 
 			</div>
 			  
@@ -154,12 +154,12 @@
          <div class="modal-body">
 				<label class="control-label" for="login-user">用户名</label>
 				<div class="input-group">
-					<input type="text" id="login-user" class="form-control input-sm" placeholder="Username" name="userName">
+					<input type="text" id="login-user" class="form-control input-sm" placeholder="Username" name="userName"  required="required">
 					<span class="input-group-addon"><span class="fa fa-user"></span></span>
 				</div>
 				<label class="control-label" for="login-pass">密码</label>
 				<div class="input-group">
-					<input type="password" id="login-pass" class="form-control input-sm" placeholder="Password" name="password">
+					<input type="password" id="login-pass" class="form-control input-sm" placeholder="Password" name="password"  required="required">
 					<span class="input-group-addon"><span class="fa fa-key"></span></span>
 				</div>
          </div>
@@ -168,7 +168,7 @@
 
          <%--<a href="/griefgrocerystore/hello.html" class="btn btn-info ">登录</a>--%>
 			 <button type="submit" class="btn btn-primary">登录</button>
-		 <a href="zhuce.zhuce.jsp" class="btn btn-warning " style="margin-bottom: 4px">注册</a>
+		 <a href="/griefgrocerystore/register_form.html" class="btn btn-warning " style="margin-bottom: 4px">注册</a>
 		 <!-- <a  class="btn btn-danger btn-sm" data-dismiss="modal">关闭</a> -->
                      </div>
 		</form>

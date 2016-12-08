@@ -8,7 +8,6 @@
 	<script src="/griefgrocerystore/js/jquery.min.js"></script>
 	<!-- Bootstrap -->
 	<script src="/griefgrocerystore/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 <!--操作结果对话框-->

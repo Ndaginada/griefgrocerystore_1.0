@@ -1,29 +1,17 @@
 <%@page pageEncoding="UTF-8"
 %>
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
 	<head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<title>index</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FREEHTML5.CO" />
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
@@ -57,9 +45,9 @@
 			<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 			<div id="fh5co-logo">
 				<a  data-toggle="modal" data-target="#myModal2" class="btn">登录</a>
-				<!-- <a href="weilaijisuanqi.jsp">未来计算器<span>.</span></a>
-				<a href="liaotian.jsp">聊天机器人<span>.</span></a>
-				<a href="xiexin.jsp">写信<span>.</span></a> -->
+				<!-- <a href="user_future.jsp">未来计算器<span>.</span></a>
+				<a href="user_chat.jsp">聊天机器人<span>.</span></a>
+				<a href="user_write.jsp">写信<span>.</span></a> -->
 
 			</div>
 			  
@@ -146,15 +134,6 @@
 			</div>
 		</div>
 
-
-
-
-
-		
-
-
-	
-
 	</div> <!-- END fh5co-page -->
 
 	  <!--  弹出框 -->
@@ -175,12 +154,12 @@
          <div class="modal-body">
 				<label class="control-label" for="login-user">用户名</label>
 				<div class="input-group">
-					<input type="text" id="login-user" class="form-control input-sm" placeholder="Username" name="userName" required="required">
+					<input type="text" id="login-user" class="form-control input-sm" placeholder="Username" name="userName"  required="required">
 					<span class="input-group-addon"><span class="fa fa-user"></span></span>
 				</div>
 				<label class="control-label" for="login-pass">密码</label>
 				<div class="input-group">
-					<input type="password" id="login-pass" class="form-control input-sm" placeholder="Password" name="password" required="required">
+					<input type="password" id="login-pass" class="form-control input-sm" placeholder="Password" name="password"  required="required">
 					<span class="input-group-addon"><span class="fa fa-key"></span></span>
 				</div>
          </div>

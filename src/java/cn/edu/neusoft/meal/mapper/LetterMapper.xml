@@ -4,46 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 
 <mapper namespace="cn.edu.neusoft.meal.mapper.LetterDao">
-   <select id="getHotFoods" resultType="cn.edu.neusoft.meal.domain.Letter">
-   select * from letter order by hits limit 1,4
-   </select>
-    <select id="getSalesFoods" resultType="cn.edu.neusoft.meal.domain.Letter">
-   select * from letter order by price limit 1,4
-   </select>
-    <select id="getRecommedFoods" resultType="cn.edu.neusoft.meal.domain.Letter">
-   select * from letter order by comment limit 1,4
-   </select>
-   <select id="getAllFoods" resultType="cn.edu.neusoft.meal.domain.Letter">
-   select * from letter
-   </select>
-    <select id="getEditFood" parameterType="int" resultType="cn.edu.neusoft.meal.domain.Letter">
-        select * from letter WHERE id=#{id}
-    </select>
-   <select id="FindFoods" resultType="cn.edu.neusoft.meal.domain.Letter">
-    select * from letter
-       where 1=1
-       <if test="param1!=null and param1!=''">
-		    and foodName like CONCAT('%', '${param1}', '%') 
-		</if>
-	<if test="param2!=null and param2!='' ">
-		    and type =#{param2} 
-	</if>
- </select>
-  <delete id="delFood" parameterType="int" >
-		delete from letter where id=#{del_id}
-   </delete>
-   <select id="getMaxId" resultType="java.lang.Integer">
-   select max(id) from letter
-   </select>
-   <insert id="addFood" parameterType="cn.edu.neusoft.meal.domain.Letter" >
-      INSERT INTO letter VALUES (#{id}, #{foodName}, #{feature}, #{material}, #{price},#{type}, #{picture}, #{hits}, #{comment})
-   </insert>
-<update id="editFood" parameterType="cn.edu.neusoft.meal.domain.Letter" >
-    update letter set foodName=#{foodName},feature=#{feature},material=#{material},price=#{price},comment=#{comment},type=#{type}
-    <if test="picture!=null and picture!=''">
-        ,picture=#{picture}
-    </if>
-        WHERE id=#{id}
-</update>
+
    
 </mapper>
