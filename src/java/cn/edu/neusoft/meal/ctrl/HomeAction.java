@@ -13,8 +13,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class HomeAction {
-	//nihao
-	//shishi
+	//hi
 	@Autowired
 	private LetterService letterService;
 	@Autowired
