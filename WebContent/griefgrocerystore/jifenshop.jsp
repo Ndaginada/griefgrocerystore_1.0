@@ -39,8 +39,8 @@
 	
 </head>
 
-<body>
-<!-- header -->
+<body bgcolor="#6495ed">
+<!-- ----------------------------------------------------------------导航栏 --------------------------------------------------------------------->
 	<div class="header">
 		<div class="container">
 			<div class="header-nav">
@@ -73,14 +73,16 @@
 			</div>
 		</div>
 	</div>
+<!-- ---------------------------------------------------------------邮票兑换---------------------------------------------------------------- -->
 <div id="gallery" class="gallery">
 		<div class="container">
-			<h3>积分商城</h3>
+			<h3>邮票专区</h3>
 			<p class="ever">在这里你可以使用积分兑换你所需要的东西</p>
 			<div class="gallery-grids">
 				<section>
 					<ul id="da-thumbs" class="da-thumbs">
 						<li>
+							<!-- 这里可以改点击图片后链接 -->
 							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
 								<img src="images/wan.png" alt="" />
 								<div>
@@ -90,6 +92,17 @@
 							</a>
 						</li>
 						<li>
+							<!-- 这里可以改点击图片后链接 -->
+							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="images/wan.png" />
+								<div>
+									<h5>选择</h5>
+									<span>点击兑换</span>
+								</div>
+							</a>
+						</li>
+						<li>
+							<!-- 这里可以改点击图片后链接 -->
 							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
 								<img src="images/wan.png" alt="" />
 								<div>
@@ -99,6 +112,7 @@
 							</a>
 						</li>
 						<li>
+							<!-- 这里可以改点击图片后链接 -->
 							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
 								<img src="images/wan.png" alt="" />
 								<div>
@@ -108,24 +122,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
-								<img src="images/wan.png" alt="" />
-								<div>
-									<h5>选择</h5>
-									<span>点击兑换</span>
-								</div>
-							</a>
-						</li>
-						<li>	
-							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
-								<img src="images/wan.png" alt="" />
-								<div>
-									<h5>选择</h5>
-									<span>点击兑换</span>
-								</div>
-							</a>
-						</li>
-						<li>
+							<!-- 这里可以改点击图片后链接 -->
 							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
 								<img src="images/wan.png" alt="" />
 								<div>
@@ -135,6 +132,8 @@
 							</a>
 						</li>
 						<li>
+
+							<!-- 这里可以改点击图片后链接 -->
 							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
 								<img src="images/wan.png" alt="" />
 								<div>
@@ -144,6 +143,7 @@
 							</a>
 						</li>
 						<li>
+							<!-- 这里可以改点击图片后链接 -->
 							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
 								<img src="images/wan.png" alt="" />
 								<div>
@@ -153,6 +153,7 @@
 							</a>
 						</li>
 						<li>
+							<!-- 这里可以改点击图片后链接 -->
 							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
 								<img src="images/wan.png" alt="" />
 								<div>
@@ -161,9 +162,127 @@
 								</div>
 							</a>
 						</li>
-						<div class="clearfix"> </div>
+						<li>
+							<!-- 这里可以改点击图片后链接 -->
+							<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="images/wan.png" alt="" />
+								<div>
+									<h5>选择</h5>
+									<span>点击兑换</span>
+								</div>
+							</a>
+						</li>
+
+							<div class="clearfix"> </div>
 					</ul>
+
 				</section>
+				<!--------------------------------------------------------------- 信纸兑换------------------------------------------------------ -->
+				<div id="gallery" class="gallery">
+					<div class="container">
+						<h3>信纸专区</h3>
+						<p class="ever">在这里你可以使用积分兑换你所需要的东西</p>
+						<div class="gallery-grids">
+							<section>
+								<ul id="da-thumbs" class="da-thumbs">
+									<li>
+										<!-- 这里可以改点击图片后链接 -->
+										<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+											<img src="images/wan.png" alt="" />
+											<div>
+												<h5>选择</h5>
+												<span>点击兑换</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<!-- 这里可以改点击图片后链接 -->
+										<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+											<img src="images/wan.png" alt="" />
+											<div>
+												<h5>选择</h5>
+												<span>点击兑换</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<!-- 这里可以改点击图片后链接 -->
+										<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+											<img src="images/wan.png" alt="" />
+											<div>
+												<h5>选择</h5>
+												<span>点击兑换</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<!-- 这里可以改点击图片后链接 -->
+										<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+											<img src="images/wan.png" alt="" />
+											<div>
+												<h5>选择</h5>
+												<span>点击兑换</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<!-- 这里可以改点击图片后链接 -->
+										<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+											<img src="images/wan.png" alt="" />
+											<div>
+												<h5>选择</h5>
+												<span>点击兑换</span>
+											</div>
+										</a>
+									</li>
+									<li>
+
+										<!-- 这里可以改点击图片后链接 -->
+										<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+											<img src="images/wan.png" alt="" />
+											<div>
+												<h5>选择</h5>
+												<span>点击兑换</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<!-- 这里可以改点击图片后链接 -->
+										<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+											<img src="images/wan.png" alt="" />
+											<div>
+												<h5>选择</h5>
+												<span>点击兑换</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<!-- 这里可以改点击图片后链接 -->
+										<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+											<img src="images/wan.png" alt="" />
+											<div>
+												<h5>选择</h5>
+												<span>点击兑换</span>
+											</div>
+										</a>
+									</li>
+									<li>
+										<!-- 这里可以改点击图片后链接 -->
+										<a href="images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+											<img src="images/wan.png" alt="" />
+											<div>
+												<h5>选择</h5>
+												<span>点击兑换</span>
+											</div>
+										</a>
+									</li>
+
+									<div class="clearfix"> </div>
+								</ul>
+
+							</section>
+				<!------------------------------------------------------------------- end---------------------------------------------------------------------------------->
+
 				<script type="text/javascript" src="js/jquery.hoverdir.js"></script>	
 				<script type="text/javascript">
 					$(function() {
