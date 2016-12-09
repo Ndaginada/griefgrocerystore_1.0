@@ -37,40 +37,9 @@
 </head>
 
 <body style="background-color:#E6E6FA">
-<!-- header -->
-	<div class="header">
-		<div class="container">
-			<div class="header-nav">
-				<nav class="navbar navbar-default">
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<div class="navbar-header">
-					  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					  </button>
-						<div class="logo">
-							<a class="navbar-brand" href="/griefgrocerystore/index.html">解忧杂货铺<span>使你快乐</span></a>
-						</div>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-					 <ul class="nav navbar-nav">
-						<li class="hvr-sweep-to-bottom"><a href="hello.hello.jsp">主页</a></li>
-						<li class="hvr-sweep-to-bottom"><a href="xiexin.xiexin.jsp" class="scroll">写信</a></li>
-						<li class="hvr-sweep-to-bottom"><a href="weilaijisuanqi.weilaijisuanqi.jsp" class="scroll">未来计算器</a></li>
-						<li class="hvr-sweep-to-bottom"><a href="liaotian.liaotian.jsp" class="scroll">聊天机器人</a></li>
-						<li class="hvr-sweep-to-bottom"><a href="wode.wode.jsp" class="scroll">我的</a></li>
-						<li class="hvr-sweep-to-bottom"><a href="jifenshop.jifenshop.jsp" class="scroll">积分商城</a></li>
-					  </ul>
-					</div><!-- /.navbar-collapse -->
-				</nav>
-			</div>
-		</div>
-	</div>
-<!-- //header -->
+<jsp:include page="user_nav.jsp">
+	<jsp:param name="par" value="index" />
+</jsp:include>
 
 <!-- welcome -->
 	<div class="welcome">

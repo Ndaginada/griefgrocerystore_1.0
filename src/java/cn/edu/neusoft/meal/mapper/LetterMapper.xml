@@ -4,6 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 
 <mapper namespace="cn.edu.neusoft.meal.mapper.LetterDao">
+    <select id="getMaxId" resultType="java.lang.Integer">
+        select max(id) from letter
+    </select>
+   <insert id="addletter" parameterType="cn.edu.neusoft.meal.domain.Letter">
+       INSERT INTO letter VALUES (#{id},#{lettername},#{lettercontext},#{belonguser})
+   </insert>
 
-   
+    <select id="FindLetters" resultType="cn.edu.neusoft.meal.domain.Letter">
+        select * from letter
+        where 1=1
+        <if test="param1!=null and param1!=''">
+            and lettername like CONCAT('%', '${param1}', '%')
+        </if>
+    </select>
+
+    <select id="FindLettersByUser" resultType="cn.edu.neusoft.meal.domain.Letter">
+        SELECT letter.lettername,letter.lettercontext FROM letter
+        JOIN letteranduser ON letter.id=letteranduser.letterid
+        JOIN user ON letteranduser.userid=user.id
+        WHERE user.userName=#{0}
+    </select>
+
 </mapper>

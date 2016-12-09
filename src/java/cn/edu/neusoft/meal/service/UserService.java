@@ -1,8 +1,8 @@
 package cn.edu.neusoft.meal.service;
 
-import java.util.List;
-
 import cn.edu.neusoft.meal.domain.User;
+
+import java.util.List;
 
 public interface UserService {
 
@@ -15,6 +15,8 @@ public interface UserService {
     boolean deluser(int del_id);
 
     User findUserbByid(int id);
+
+    User findUserByLeter(int l_id);
 
     boolean editUser(User user);
 

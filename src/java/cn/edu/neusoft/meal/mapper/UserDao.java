@@ -1,9 +1,8 @@
 package cn.edu.neusoft.meal.mapper;
 
-import java.util.List;
-
 import cn.edu.neusoft.meal.domain.User;
-import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserDao {
 
@@ -23,4 +22,6 @@ public interface UserDao {
     boolean editUser(User user);
 
 	long getUserCount(String s_un);
+
+    User findUserByLeter(int l_id);
 }

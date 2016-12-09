@@ -1,10 +1,10 @@
 package cn.edu.neusoft.meal.domain;
 
 public class Letter {
-	private long id;
-	private String lettername,lettercontext;
+	private int id;
+	private String lettername,lettercontext,belonguser;
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -12,7 +12,16 @@ public class Letter {
 		return lettername;
 	}
 
-	public void setId(long id) {
+	public void setBelonguser(String belonguser) {
+		this.belonguser = belonguser;
+	}
+
+	public String getBelonguser() {
+
+		return belonguser;
+	}
+
+	public void setId(int id) {
 		this.id = id;
 	}
 

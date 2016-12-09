@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="js/jquery.validate.min.js" ></script>
 	<script type="text/javascript" src="js/message.js" ></script>
 	<style type="text/css">
-		body{background: url(/griefgrocerystore/images/slide_1.jpg) no-repeat;font-size: 16px ;}
+		body{background: url(/griefgrocerystore/images/reg_bg.jpg) no-repeat;font-size: 16px ;}
 		.form{background: cornflowerblue;width:800px;margin:100px auto;}
 
 		.fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
@@ -32,7 +32,7 @@
 <div class="container">
 	<div class="form row">
 		<form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="register_form"  method="post" action="/griefgrocerystore/register.html">
-			<h3 class="form-title">注册</h3>
+			<h2 class="form-title">注    册</h2>
 			<div class="col-sm-9 col-md-9">
 				<!-- 用户名 -->
 				<div class="form-group">
@@ -73,8 +73,12 @@
 				<%--</div>--%>
 
 				<div class="form-group">
-					<button type="submit" class="btn  btn-success">注册</button>
-					<a href="/griefgrocerystore/index.html" class="btn btn-success btn-primary">返回</a>
+					<div class="col-xs-7">
+					<button type="submit" class="btn  btn-success btn-lg">注册</button>
+					</div>
+					<div class="col-xs-5">
+					<a href="/griefgrocerystore/index.html" class="btn btn-danger btn-primary btn-lg">返回</a>
+				</div>
 				</div>
 			</div>
 		</form>

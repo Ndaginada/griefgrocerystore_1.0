@@ -61,6 +61,7 @@ public class HomeAction {
 
 						// 用session保存用户的登录信息
 						session.setAttribute("loginName", getUser.getUserName());
+						session.setAttribute("loginId",getUser.getId());
 						session.setAttribute("ident", ident);
 						if (ident.equals("1")) {
 							 mv=new ModelAndView("griefgrocerystore/admin/admin_index");

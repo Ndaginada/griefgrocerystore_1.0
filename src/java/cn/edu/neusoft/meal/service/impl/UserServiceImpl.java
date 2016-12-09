@@ -1,13 +1,12 @@
 package cn.edu.neusoft.meal.service.impl;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import cn.edu.neusoft.meal.domain.User;
 import cn.edu.neusoft.meal.mapper.UserDao;
 import cn.edu.neusoft.meal.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 @Autowired
@@ -30,7 +29,11 @@ public class UserServiceImpl implements UserService {
 		return dao.findUser(s_un,pageno);
 
 	}
+	@Override
+	public User findUserByLeter(int l_id) {
+		return dao.findUserByLeter(l_id);
 
+	}
 	@Override
 	public boolean addUser(User user) {
 		int next=dao.getMaxId()+1;

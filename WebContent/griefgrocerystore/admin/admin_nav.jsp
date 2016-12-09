@@ -14,7 +14,7 @@
 					<li class="<c:if test="${param.fun=='food_t_m'}">active</c:if>">
 					<a href="#">信纸分类管理</a></li>
 					<li class="<c:if test="${param.fun=='food_m'}">active</c:if>">
-					<a href="/griefgrocerystore/admin/food_list.html">信件管理</a></li>
+					<a href="/griefgrocerystore/admin/letter_list.html">信件管理</a></li>
 					<li class="<c:if test="${param.fun=='dc_s'}">active</c:if>">
 					<a href="/griefgrocerystore/admin_show_dc.jsp">邮票管理</a></li>
 				</ul>
