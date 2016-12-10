@@ -11,12 +11,22 @@
        INSERT INTO letter VALUES (#{id},#{lettername},#{lettercontext},#{belonguser})
    </insert>
 
+    <delete id="DelLetterRelation" parameterType="cn.edu.neusoft.meal.domain.LetterAndUser" >
+        delete from letteranduser where letterid=#{letterid}
+    </delete>
+
+    <delete id="DelLetter" parameterType="int" >
+        delete from letter where id=#{del_id}
+    </delete>
+
     <select id="FindLetters" resultType="cn.edu.neusoft.meal.domain.Letter">
         select * from letter
-        where 1=1
-        <if test="param1!=null and param1!=''">
-            and lettername like CONCAT('%', '${param1}', '%')
-        </if>
+        where lettername like #{0}
+        limit #{1},10
+    </select>
+
+    <select id="FindLetterById" resultType="cn.edu.neusoft.meal.domain.Letter">
+        select * from letter WHERE id=#{id}
     </select>
 
     <select id="FindLettersByUser" resultType="cn.edu.neusoft.meal.domain.Letter">
@@ -25,5 +35,15 @@
         JOIN user ON letteranduser.userid=user.id
         WHERE user.userName=#{0}
     </select>
+
+    <select id="getLetterCount" resultType="long">
+        select count(*) as m from letter
+        WHERE lettername LIKE #{0}
+    </select>
+
+    <update id="editLetter" parameterType="cn.edu.neusoft.meal.domain.Letter">
+        UPDATE letter SET lettername=#{lettername},lettercontext=#{lettercontext},belonguser=#{belonguser}
+        WHERE id=#{id}
+    </update>
 
 </mapper>

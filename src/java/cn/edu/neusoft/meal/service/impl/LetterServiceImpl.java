@@ -35,13 +35,57 @@ public class LetterServiceImpl implements LetterService {
     }
 
     @Override
-    public List<Letter> getFindLetters(String a_ln) {
-        return dao.FindLetters(a_ln);
+    public List<Letter> getFindLetters(String a_ln,int page_no) {
+        if(a_ln==null){
+            a_ln="%%";
+        }else{
+            a_ln="%"+a_ln+"%";
+        }
+        page_no=page_no*10;
+        return dao.FindLetters(a_ln,page_no);
     }
 
     @Override
     public List<Letter> getFindLetterByUser(String u_name) {
         return dao.FindLettersByUser(u_name);
+    }
+
+    @Override
+    public Letter getFindLetterById(int id) {
+        return dao.FindLetterById(id);
+    }
+
+    @Override
+    public boolean delletter(LetterAndUser lau) {
+        if (dao.DelLetterRelation(lau)&&dao.DelLetter(lau.getLetterid())){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
+    public long getPage(String a_ln) {
+        if(a_ln==null){
+            a_ln="%%";
+        }else{
+            a_ln="%"+a_ln+"%";
+        }
+        long userCount=dao.getLetterCount(a_ln);
+        if(userCount%10==0){
+            return userCount/10;
+        }else{
+            return userCount/10+1;
+        }
+    }
+
+    @Override
+    public boolean editLetter(Letter letter) {
+        if (dao.editLetter(letter)){
+            return true;
+        }else {
+            return false;
+        }
     }
 
 

@@ -21,7 +21,7 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 			<div class="panel-heading">
 				<form class="form-inline" role="search">
 					<div class="form-group">
-						<input class="form-control" type="text" name="a_ln" placeholder="按信件名查询" />
+						<input class="form-control" type="text" name="a_ln" id="a_ln" value="${param.a_ln}" placeholder="按信件名查询" />
 					</div>
 					<%--<div class="form-group">--%>
 						<%--<input class="form-control" type="text" name="a_un" placeholder="按用户名查询" />--%>
@@ -74,8 +74,10 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 							</td>
 
 							<td>
-								<a class="btn btn-xs btn-warning" data-toggle="tooltip" title="修改菜品" href="/mealsystem/admin/food_edit_form.html?id=${letter.id}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<button type="button" class="btn btn-xs btn-danger"  data-toggle="modal" data-toggle="tooltip" onclick="delConfirm('${letter.id}')" title="删除菜品"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+								<a class="btn btn-xs btn-warning" data-toggle="tooltip" title="修改信件" href="letter_edit_form.html?id=${letter.id}" role="button">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+
+								<button type="button" class="btn btn-xs btn-danger"  data-toggle="modal" data-toggle="tooltip" onclick="delConfirm('${letter.id}')" title="删除信件"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 							</td>
 						</tr>
 					</c:forEach>
@@ -88,9 +90,9 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 								<span aria-hidden="true">&laquo;</span>
 							</a>
 						</li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
+						<c:forEach begin="0" end="${lpages-1}" var="i">
+							<li><a href="#" onclick="javascript:return jumptopage(${i})">${i+1}</a></li>
+						</c:forEach>
 						<li>
 							<a href="#" aria-label="Next">
 						    <span aria-hidden="true">&raquo;</span>
@@ -113,7 +115,7 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 					<h4 class="modal-title">删除确认</h4>
 				</div>
 				<div class="modal-body">
-					<h4 class="text-danger">确定要删除该菜品吗？</h4>
+					<h4 class="text-danger">确定要删除该信件吗？</h4>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
@@ -123,8 +125,14 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 	<script>
+        function jumptopage(page){
+
+            var keyword=$('#a_ln').val();
+            location.href="letter_list.html?a_ln="+keyword+"&pageno="+page;
+            return false;
+        }
 		function delConfirm(id){
-			$('#url').val('food_del.html?id='+id);
+			$('#url').val('letter_del.html?id='+id);
 			$('#delConfirmModal').modal();
 		}
 		function delSubmit(){

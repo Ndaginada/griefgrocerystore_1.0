@@ -17,7 +17,6 @@ public class UserAction {
 	
 	@RequestMapping("/griefgrocerystore/admin/user_list")
 	public ModelAndView list(String s_un,String pageno){
-		System.out.print(s_un);
 		long page=userService.getPage(s_un);
 		int page_no;
 		if(pageno!=null){
