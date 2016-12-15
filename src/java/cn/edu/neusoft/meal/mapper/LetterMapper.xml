@@ -41,6 +41,10 @@
         WHERE lettername LIKE #{0}
     </select>
 
+    <select id="getAllLetter" resultType="cn.edu.neusoft.meal.domain.Letter">
+        select * from letter
+    </select>
+
     <update id="editLetter" parameterType="cn.edu.neusoft.meal.domain.Letter">
         UPDATE letter SET lettername=#{lettername},lettercontext=#{lettercontext},belonguser=#{belonguser}
         WHERE id=#{id}

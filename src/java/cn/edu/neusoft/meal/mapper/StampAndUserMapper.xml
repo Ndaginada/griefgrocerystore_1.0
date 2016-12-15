@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+
+<mapper namespace="cn.edu.neusoft.meal.mapper.StampAndUserDao">
+    <select id="getMaxId" resultType="java.lang.Integer">
+        select max(id) from stampanduser
+    </select>
+
+    <select id="findStampAndUserByid" resultType="cn.edu.neusoft.meal.domain.StampAndUser">
+        select * from stampanduser WHERE userid=#{0}
+    </select>
+
+    <insert id="buystamp" parameterType="cn.edu.neusoft.meal.domain.StampAndUser">
+    INSERT INTO stampanduser VALUES (#{id},#{userid},#{stampid})
+   </insert>
+
+
+</mapper>

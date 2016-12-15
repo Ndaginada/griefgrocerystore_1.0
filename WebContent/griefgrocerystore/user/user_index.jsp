@@ -1,6 +1,6 @@
 <%@page pageEncoding="UTF-8"
 %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -88,7 +88,6 @@
 		</div>
 	</div>
 <!-- //welcome -->
-
 <!-- services -->
 	<div id="services" class="services">
 		<div class="container">
@@ -98,52 +97,57 @@
 				<div class="col-md-6 services-top-left">
 					<div class="services-top-main">
 						<div class="col-md-6 services-left service-img">
-							<a href="images/5.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
-								<img src="../images/wan.png" alt="" class="img-responsive" />
-							</a>
+							<%--<a href="images/5.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">--%>
+								<%--<img src="../images/wan.png" alt="" class="img-responsive" />--%>
+							<%--</a>--%>
 						</div>
 						<div class="col-md-6 services-left">
-							<h4>信件1</h4>
-							<p>你是否担心自己的未来呢？</p>
+							<ul>
+							<c:forEach items="${letters}" var="letter">
+								<li class="mask b-link-stripe b-animate-go  swipebox" >${letter.lettername}</li>
+								<li class="mask b-link-stripe b-animate-go  swipebox" >${letter.lettercontext}</li>
+							</c:forEach>
+							</ul>
 						</div>
 						<div class="clearfix"></div>
 					</div>
-					<div class="services-top-main">
-						<div class="col-md-6 services-left service-img">
-							<a href="images/6.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
-								<img src="../images/wan.png" alt="" class="img-responsive" />
-							</a>
-						</div>
-						<div class="col-md-6 services-left">
-							<h4>信件2</h4>
-							<p>机器人为您提供实时天气</p>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-				<div class="col-md-6 services-top-left">
-					<div class="services-top-main">
-						<div class="col-md-6 services-left service-img">
-							<a href="../images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox" title="">
-								<img src="../images/wan.png" alt="" class="img-responsive" />
-							</a>
-						</div>
-						<div class="col-md-6 services-left">
-							<h4>信件3</h4>
-							<p>相信笑话可以使你开心</p>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="services-top-main">
-						<div class="col-md-6 services-left service-img">
-							<a href="../images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox" title="">
-								<img src="../images/wan.png" alt="" class="img-responsive" />
-							</a>
-						</div>
-						<div class="col-md-6 services-left">
-							<h4>信件4</h4>
-							<p>再也不用打开浏览器</p>
-						</div>
+
+					<%--<div class="services-top-main">--%>
+						<%--<div class="col-md-6 services-left service-img">--%>
+							<%--<a href="images/6.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">--%>
+								<%--<img src="../images/wan.png" alt="" class="img-responsive" />--%>
+							<%--</a>--%>
+						<%--</div>--%>
+						<%--<div class="col-md-6 services-left">--%>
+							<%--<h4>信件2</h4>--%>
+							<%--<p>机器人为您提供实时天气</p>--%>
+						<%--</div>--%>
+						<%--<div class="clearfix"></div>--%>
+					<%--</div>--%>
+				<%--</div>--%>
+				<%--<div class="col-md-6 services-top-left">--%>
+					<%--<div class="services-top-main">--%>
+						<%--<div class="col-md-6 services-left service-img">--%>
+							<%--<a href="../images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox" title="">--%>
+								<%--<img src="../images/wan.png" alt="" class="img-responsive" />--%>
+							<%--</a>--%>
+						<%--</div>--%>
+						<%--<div class="col-md-6 services-left">--%>
+							<%--<h4>信件3</h4>--%>
+							<%--<p>相信笑话可以使你开心</p>--%>
+						<%--</div>--%>
+						<%--<div class="clearfix"></div>--%>
+					<%--</div>--%>
+					<%--<div class="services-top-main">--%>
+						<%--<div class="col-md-6 services-left service-img">--%>
+							<%--<a href="../images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox" title="">--%>
+								<%--<img src="../images/wan.png" alt="" class="img-responsive" />--%>
+							<%--</a>--%>
+						<%--</div>--%>
+						<%--<div class="col-md-6 services-left">--%>
+							<%--<h4>信件4</h4>--%>
+							<%--<p>再也不用打开浏览器</p>--%>
+						<%--</div>--%>
 						<div class="clearfix"></div>
 					</div>
 				</div>

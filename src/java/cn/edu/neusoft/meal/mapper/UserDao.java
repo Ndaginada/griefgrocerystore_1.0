@@ -24,4 +24,8 @@ public interface UserDao {
 	long getUserCount(String s_un);
 
     User findUserByLeter(int l_id);
+
+	boolean subScore(User user);
+
+	boolean addScore(int user_id);
 }

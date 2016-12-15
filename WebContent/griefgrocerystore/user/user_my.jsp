@@ -36,6 +36,7 @@
     <br/><br/><br/><br/><br/><br/><br/>
     <div class="row">
         <div class="col-xs-7">
+            <h3>我发送的信件</h3>
         <c:forEach items="${letters}" var="letter">
             <pre>
              <h1>${letter.lettername}</h1>

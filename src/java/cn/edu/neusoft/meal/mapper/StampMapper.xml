@@ -3,7 +3,11 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="cn.edu.neusoft.meal.mapper.LatterPageDao">
-
-
+<mapper namespace="cn.edu.neusoft.meal.mapper.StampDao">
+<select id="listAll" resultType="cn.edu.neusoft.meal.domain.Stamp">
+    SELECT * FROM stamp
+</select>
+<select id="findStampByid" resultType="cn.edu.neusoft.meal.domain.Stamp" >
+    SELECT * FROM stamp WHERE stampid=#{0}
+</select>
 </mapper>

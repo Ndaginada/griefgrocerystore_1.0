@@ -46,6 +46,11 @@ public class LetterServiceImpl implements LetterService {
     }
 
     @Override
+    public List<Letter> getAllLetter() {
+        return dao.getAllLetter();
+    }
+
+    @Override
     public List<Letter> getFindLetterByUser(String u_name) {
         return dao.FindLettersByUser(u_name);
     }

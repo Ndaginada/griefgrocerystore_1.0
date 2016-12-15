@@ -1,5 +1,6 @@
 package cn.edu.neusoft.meal.ctrl;
 
+import cn.edu.neusoft.meal.domain.Letter;
 import cn.edu.neusoft.meal.domain.User;
 import cn.edu.neusoft.meal.service.LetterService;
 import cn.edu.neusoft.meal.service.UserService;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class HomeAction {
@@ -33,6 +35,10 @@ public class HomeAction {
 	@RequestMapping("/griefgrocerystore/hello")
 	public ModelAndView homepage(){
 		ModelAndView mv=new ModelAndView("griefgrocerystore/user/user_index");
+		List<Letter> leters
+				=letterService.getAllLetter();
+		System.out.print(leters.get(0).getLettername());
+		mv.addObject("letters",leters);
 		return mv;
 	}
 
@@ -67,7 +73,7 @@ public class HomeAction {
 							 mv=new ModelAndView("griefgrocerystore/admin/admin_index");
 						} else {
 							// 普通用户
-							mv=new ModelAndView("griefgrocerystore/user/user_index");
+							mv=new ModelAndView("redirect:hello.html");
 						}
 					}
 		return mv;

@@ -12,6 +12,8 @@ public interface LetterService {
 
     List<Letter> getFindLetters(String a_ln,int page_no);
 
+    List<Letter> getAllLetter();
+
     List<Letter> getFindLetterByUser(String u_name);
 
     Letter getFindLetterById(int id);

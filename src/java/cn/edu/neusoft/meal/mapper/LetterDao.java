@@ -26,4 +26,6 @@ public interface LetterDao {
     long getLetterCount(String a_ln);
 
     boolean editLetter(Letter letter);
+
+    List<Letter> getAllLetter();
 }

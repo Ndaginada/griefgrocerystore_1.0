@@ -21,4 +21,6 @@ public interface UserService {
     boolean editUser(User user);
 
     long getPage(String s_un);
+
+    boolean adddScore(int user_id);
 }

@@ -112,10 +112,11 @@
 		location.href="user_list.html?s_un="+keyword+"&pageno="+page;
 		return false;
 	}
-		function delConfirm(id){
-			$('#url').val('user_del.html?id='+id);
-			$('#delConfirmModal').modal();
-		}
+    function delConfirm(id){
+        $('#url').val('user_del.html?id='+id);
+        $('#delConfirmModal').modal();
+    }
+
 		function delSubmit(){
 			location.replace($('#url').val());
 		}

@@ -119,7 +119,7 @@
                 ubb.helpLink = "/help/ubb.html";
                 ubb.render("fontsize|space|bold|italic|underline|strikethrough|color|code|space|url|email|image|space|left|center|right");
                 /*]]>*/</script>
-
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/>
                  <div class="submitRegion" style="padding: 8px 0">
                     <input type="submit" name="bt_Submit" value="提交信件" id="bt_Submit" class="button col-xs-3" />&nbsp;</div>
 

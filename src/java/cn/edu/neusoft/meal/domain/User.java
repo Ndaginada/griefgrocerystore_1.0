@@ -1,7 +1,7 @@
 package cn.edu.neusoft.meal.domain;
 
 public class User {
-	private int id;
+	private int id,score;
 	private String userName,password,ident;
 	public int getId() {
 		return id;
@@ -9,6 +9,15 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 	public String getUserName() {
 		return userName;
 	}

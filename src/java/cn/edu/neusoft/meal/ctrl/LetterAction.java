@@ -33,7 +33,7 @@ public class LetterAction {
 		lau.setUserid(user_id);
 		boolean s=letterService.addletter(letter,lau);
 		String msg="";
-		if(s){
+		if(s&&userService.adddScore(user_id)){
 			msg="提交成功";
 		}else{
 			msg="提交失败";
@@ -84,7 +84,7 @@ public class LetterAction {
 	}
 
 	@RequestMapping("/griefgrocerystore/admin/letter_edit")
-	public ModelAndView editUser(Letter letter){
+	public ModelAndView editLetter(Letter letter){
 		ModelAndView mv=new ModelAndView("griefgrocerystore/result");
 		String msg="";
 		boolean s=letterService.editLetter(letter);

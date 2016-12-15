@@ -34,7 +34,7 @@
                         <li class="hvr-sweep-to-bottom"><a href="weilaijisuanqi.weilaijisuanqi.jsp" class="scroll">未来计算器</a></li>
                         <li class="hvr-sweep-to-bottom"><a href="liaotian.liaotian.jsp" class="scroll">聊天机器人</a></li>
                         <li class="hvr-sweep-to-bottom <c:if test="${param.par=='my'}">active</c:if>"><a href="/griefgrocerystore/user/my_info.html" class="scroll">我的</a></li>
-                        <li class="hvr-sweep-to-bottom"><a href="jifenshop.jifenshop.jsp" class="scroll">积分商城</a></li>
+                        <li class="hvr-sweep-to-bottom <c:if test="${param.par=='shop'}">active</c:if>"><a href="/griefgrocerystore/shop.html" class="scroll">积分商城</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav>
