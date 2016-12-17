@@ -44,7 +44,8 @@
                        ${letter.lettercontext}
               </div>
                <div class="col-xs-4">
-         </div>
+                   <img src="${letter.stamppc}" class="img-rounded img-responsive" style="margin: -30px 1px 1px 1px" width="150" height="150" >
+                   </div>
            </pre>
         </c:forEach>
     </div>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page pageEncoding="UTF-8"
 %>
 <!DOCTYPE html>
@@ -44,6 +45,7 @@
         table.replyPost td.main{color: #4D577A;}
         table.replyPost .main a{color: #000000;}
         table.replyPost .submitRegion{padding: 8px 0;}
+
     </style>
 
     <script type="text/javascript">
@@ -111,6 +113,9 @@
                     <div>
                         信件标题：<input type="text" name="lettername" id="__VIEWSTATE"  />
                     </div>
+                    <c:forEach items="${usersstamps}" var="stamps" >
+                     <img src="${stamps.stamppc}"><input type="radio" name="stamppc" value="${stamps.stamppc}" >
+                    </c:forEach>
             <br/><br/><br/>
                     信件内容：<br/>
                     <textarea name="lettercontext" rows="2" cols="20" id="tb_ReplyBody___Editor" style="height:290px;;width:100%;"></textarea><script language="javascript" type="text/javascript" src="/EditorControl/MzUBB/CsdnUbbEditor.js"></script><script type="text/javascript">/*<![CDATA[*/

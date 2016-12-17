@@ -55,7 +55,7 @@
 					<ul id="da-thumbs" class="da-thumbs">
 						<c:forEach items="${stamps}" var="stamp">
 						<li>
-							<a  href="/griefgrocerystore/buy_stamp.html?id=${stamp.stampid}" class="btn mask b-link-stripe b-animate-go   swipebox" title="">
+							<a  href="/griefgrocerystore/user/buy_stamp.html?id=${stamp.stampid}" class="btn mask b-link-stripe b-animate-go   swipebox" title="">
 								<img src="${stamp.stamppc}" alt="" />
 								<div>
 									<h5 >选择</h5>
@@ -104,7 +104,7 @@
 				
 			</div>
 		</div>
-
+</div>
 <!-- for bootstrap working -->
 		<script src="/griefgrocerystore/js/bootstrap.js"> </script>
 <!-- //for bootstrap working -->
@@ -125,6 +125,7 @@
 								
 			});
 	</script>
+
 
 </body>
 </html>

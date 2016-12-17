@@ -32,7 +32,7 @@ public class HomeAction {
 		return mv;
 	}
 
-	@RequestMapping("/griefgrocerystore/hello")
+	@RequestMapping("/griefgrocerystore/user/hello")
 	public ModelAndView homepage(){
 		ModelAndView mv=new ModelAndView("griefgrocerystore/user/user_index");
 		List<Letter> leters
@@ -73,7 +73,7 @@ public class HomeAction {
 							 mv=new ModelAndView("griefgrocerystore/admin/admin_index");
 						} else {
 							// 普通用户
-							mv=new ModelAndView("redirect:hello.html");
+							mv=new ModelAndView("redirect:user/hello.html");
 						}
 					}
 		return mv;
@@ -113,5 +113,9 @@ public class HomeAction {
 		return mv;
 	}
 
-
+	@RequestMapping("/griefgrocerystore/user/chatroot")
+	public ModelAndView chat(){
+		ModelAndView mv=new ModelAndView("griefgrocerystore/user/user_chat");
+		return mv;
+	}
 }

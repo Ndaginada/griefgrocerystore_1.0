@@ -11,4 +11,10 @@ public interface StampDao {
     List<Stamp> listAll();
 
     Stamp findStampByid(int id);
+
+    List<Stamp> findStampByUserName(String loginName);
+
+    long getStampCount(String a_ln);
+
+    List<Stamp> getFindStamps(String a_ln, int page_no);
 }

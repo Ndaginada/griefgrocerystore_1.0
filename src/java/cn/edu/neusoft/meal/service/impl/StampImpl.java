@@ -55,6 +55,37 @@ public class StampImpl implements StampService{
         return saudao.findStampAndUserByid(u_id);
     }
 
+    @Override
+    public List<Stamp> findStampByUserName(String loginName) {
+        return dao.findStampByUserName(loginName);
+    }
+
+    @Override
+    public long getPage(String a_ln) {
+        if(a_ln==null){
+            a_ln="%%";
+        }else{
+            a_ln="%"+a_ln+"%";
+        }
+        long stampCount=dao.getStampCount(a_ln);
+        if(stampCount%10==0){
+            return stampCount/10;
+        }else{
+            return stampCount/10+1;
+        }
+    }
+
+    @Override
+    public List<Stamp> getFindStamps(String a_ln, int page_no) {
+        if(a_ln==null){
+            a_ln="%%";
+        }else{
+            a_ln="%"+a_ln+"%";
+        }
+        page_no=page_no*10;
+        return dao.getFindStamps(a_ln,page_no);
+    }
+
 
 //    @Override
 //    public boolean buyStamp(User user,) {

@@ -8,7 +8,7 @@
   
   <body>
     <script type="text/javascript">
-    location.href="/griefgrocerystore/index.jsp";
+    location.href="/griefgrocerystore/index.html";
     </script>
   </body>
 </html>

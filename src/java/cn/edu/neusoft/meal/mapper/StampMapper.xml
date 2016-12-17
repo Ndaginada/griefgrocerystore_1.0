@@ -10,4 +10,21 @@
 <select id="findStampByid" resultType="cn.edu.neusoft.meal.domain.Stamp" >
     SELECT * FROM stamp WHERE stampid=#{0}
 </select>
+    <select id="findStampByUserName" resultType="cn.edu.neusoft.meal.domain.Stamp">
+        SELECT * FROM stamp
+        JOIN stampanduser ON
+        stamp.stampid=stampanduser.stampid
+         JOIN `user` ON
+        stampanduser.userid=`user`.id
+        WHERE user.userName=#{0}
+    </select>
+    <select id="getFindStamps" resultType="cn.edu.neusoft.meal.domain.Stamp">
+        select * from stamp
+        where stampname like #{0}
+        limit #{1},10
+    </select>
+    <select id="getStampCount" resultType="long">
+        select count(*) as m from stamp
+        WHERE stampname LIKE #{0}
+    </select>
 </mapper>

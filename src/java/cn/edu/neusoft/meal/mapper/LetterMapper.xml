@@ -8,7 +8,7 @@
         select max(id) from letter
     </select>
    <insert id="addletter" parameterType="cn.edu.neusoft.meal.domain.Letter">
-       INSERT INTO letter VALUES (#{id},#{lettername},#{lettercontext},#{belonguser})
+       INSERT INTO letter VALUES (#{id},#{lettername},#{lettercontext},#{belonguser},#{stamppc})
    </insert>
 
     <delete id="DelLetterRelation" parameterType="cn.edu.neusoft.meal.domain.LetterAndUser" >
@@ -30,7 +30,7 @@
     </select>
 
     <select id="FindLettersByUser" resultType="cn.edu.neusoft.meal.domain.Letter">
-        SELECT letter.lettername,letter.lettercontext FROM letter
+        SELECT * FROM letter
         JOIN letteranduser ON letter.id=letteranduser.letterid
         JOIN user ON letteranduser.userid=user.id
         WHERE user.userName=#{0}

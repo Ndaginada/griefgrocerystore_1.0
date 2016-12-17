@@ -1,18 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ page pageEncoding="UTF-8" import="java.sql.*"
-import="java.util.*,cn.edu.neusoft.meal.domain.*"
+<%@ page pageEncoding="UTF-8"
  %>
 <!DOCTYPE html>
 <html>
 <head>
 	<jsp:include page="head.jsp">
-		<jsp:param value="信件信息列表" name="title"/>
+		<jsp:param value="邮票信息列表" name="title"/>
 	</jsp:include>
 </head>
 <body>
 	<jsp:include page="admin_nav.jsp">
-		<jsp:param value="letter_m" name="fun"/>
+		<jsp:param value="stamp_s" name="fun"/>
 	</jsp:include>
 
 	<div class="row">
@@ -21,19 +19,18 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 			<div class="panel-heading">
 				<form class="form-inline" role="search">
 					<div class="form-group">
-						<input class="form-control" type="text" name="a_ln" id="a_ln" value="${param.a_ln}" placeholder="按信件名查询" />
+						<input class="form-control" type="text" name="s_sn" id="s_sn" value="${param.s_sn}" placeholder="按邮票名查询"  />
 					</div>
-					<%--<div class="form-group">--%>
-						<%--<input class="form-control" type="text" name="a_un" placeholder="按用户名查询" />--%>
-					<%--</div>--%>
 					<div class="form-group">
-						<button type="submit" class="btn btn-sm btn-info" data-toggle="tooltip" title="搜索信件">
+						<button type="submit" class="btn btn-sm btn-info" data-toggle="tooltip" title="搜索邮票品">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</button>
 					</div>
-					<%--<div class="form-group pull-right">--%>
-						<%--<a class="btn btn-sm btn-success" data-toggle="tooltip" title="添加菜品" href="food_add_form.html" role="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;添加菜品</a>--%>
-					<%--</div>--%>
+
+					<div class="form-group pull-right">
+						<a class="btn btn-sm btn-success" data-toggle="tooltip" title="添加邮票" href="food_add_form.html" role="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;添加邮票</a>
+					</div>
+
 				</form>
 			</div>
 			<div class="panel-body">
@@ -44,13 +41,13 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 								#
 							</th>
 							<th>
-								信件名
+								邮票名
 							</th>
 							<th>
-								所属用户
+								邮票价格
 							</th>
 							<th>
-								信件标题
+								邮票样式
 							</th>
 							<th>
 								操作
@@ -58,26 +55,23 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${letters}" var="letter">
+					<c:forEach items="${stamps}" var="stamp">
 						<tr>
 							<th>
-								${letter.id}
+								${stamp.stampid}
 							</th>
 							<td>
-								${letter.lettername}
+								${stamp.stampname}
 							</td>
 							<td>
-								 ${letter.belonguser}
+									${stamp.stampscore}分
 							</td>
 							<td>
-									${letter.lettercontext}
+								<img class="img-rounded" src="${stamp.stamppc}" />
 							</td>
-
 							<td>
-								<a class="btn btn-xs btn-warning" data-toggle="tooltip" title="修改信件" href="letter_edit_form.html?id=${letter.id}" role="button">
-									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-
-								<button type="button" class="btn btn-xs btn-danger"  data-toggle="modal" data-toggle="tooltip" onclick="delConfirm('${letter.id}')" title="删除信件"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+								<a class="btn btn-xs btn-warning" data-toggle="tooltip" title="修改菜品" href="/mealsystem/admin/food_edit_form.html?id=${food.id}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+								<button type="button" class="btn btn-xs btn-danger"  data-toggle="modal" data-toggle="tooltip" onclick="delConfirm('${food.id}')" title="删除菜品"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 							</td>
 						</tr>
 					</c:forEach>
@@ -90,7 +84,7 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 								<span aria-hidden="true">&laquo;</span>
 							</a>
 						</li>
-						<c:forEach begin="0" end="${lpages-1}" var="i">
+						<c:forEach begin="0" end="${spages-1}" var="i">
 							<li><a href="#" onclick="javascript:return jumptopage(${i})">${i+1}</a></li>
 						</c:forEach>
 						<li>
@@ -115,7 +109,7 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 					<h4 class="modal-title">删除确认</h4>
 				</div>
 				<div class="modal-body">
-					<h4 class="text-danger">确定要删除该信件吗？</h4>
+					<h4 class="text-danger">确定要删除该邮票吗？</h4>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
@@ -126,13 +120,12 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 	</div><!-- /.modal -->
 	<script>
         function jumptopage(page){
-
-            var keyword=$('#a_ln').val();
-            location.href="letter_list.html?a_ln="+keyword+"&pageno="+page;
+            var keyword=$('#s_sn').val();
+            location.href="stamp_list.html?s_sn="+keyword+"&pageno="+page;
             return false;
         }
 		function delConfirm(id){
-			$('#url').val('letter_del.html?id='+id);
+			$('#url').val('food_del.html?id='+id);
 			$('#delConfirmModal').modal();
 		}
 		function delSubmit(){

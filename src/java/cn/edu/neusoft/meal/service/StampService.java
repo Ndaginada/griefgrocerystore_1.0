@@ -18,4 +18,10 @@ public interface StampService {
     boolean buyStamp(Stamp stamp, User user, StampAndUser sau);
 
     List<StampAndUser> findStampAndUser(int u_id);
+
+    List<Stamp> findStampByUserName(String loginName);
+
+    long getPage(String a_ln);
+
+    List<Stamp> getFindStamps(String a_ln, int page_no);
 }

@@ -2,8 +2,10 @@ package cn.edu.neusoft.meal.ctrl;
 
 import cn.edu.neusoft.meal.domain.Letter;
 import cn.edu.neusoft.meal.domain.LetterAndUser;
+import cn.edu.neusoft.meal.domain.Stamp;
 import cn.edu.neusoft.meal.domain.User;
 import cn.edu.neusoft.meal.service.LetterService;
+import cn.edu.neusoft.meal.service.StampService;
 import cn.edu.neusoft.meal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,10 +22,15 @@ public class LetterAction {
 	private LetterService letterService;
 	@Autowired 
 	private UserService userService;
+	@Autowired
+	private StampService stampService;
 
 	@RequestMapping("/griefgrocerystore/user/writeletter")
-	public ModelAndView write(){
+	public ModelAndView write(HttpSession session){
 		ModelAndView mv=new ModelAndView("/griefgrocerystore/user/user_write");
+		String loginName= (String) session.getAttribute("loginName");
+		List<Stamp> stamps=stampService.findStampByUserName(loginName);
+		mv.addObject("usersstamps",stamps);
 		return mv;
 	}
 
@@ -38,7 +45,7 @@ public class LetterAction {
 		}else{
 			msg="提交失败";
 		}
-		String href = "/griefgrocerystore/hello.html";
+		String href = "/griefgrocerystore/user/hello.html";
 		mv.addObject("msg", msg);
 		mv.addObject("href", href);
 		return mv;

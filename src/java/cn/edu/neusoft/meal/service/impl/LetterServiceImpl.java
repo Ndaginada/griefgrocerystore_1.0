@@ -76,11 +76,11 @@ public class LetterServiceImpl implements LetterService {
         }else{
             a_ln="%"+a_ln+"%";
         }
-        long userCount=dao.getLetterCount(a_ln);
-        if(userCount%10==0){
-            return userCount/10;
+        long leterCount=dao.getLetterCount(a_ln);
+        if(leterCount%10==0){
+            return leterCount/10;
         }else{
-            return userCount/10+1;
+            return leterCount/10+1;
         }
     }
 

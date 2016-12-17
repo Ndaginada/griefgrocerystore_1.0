@@ -25,7 +25,7 @@ public class StampAction {
     private UserService userService;
 
 
-    @RequestMapping("/griefgrocerystore/shop")
+    @RequestMapping("/griefgrocerystore/user/shop")
     public ModelAndView shop(){
         ModelAndView mv=new ModelAndView("griefgrocerystore/user/user_shop");
         List<Stamp> stamps=stampService.listAll();
@@ -34,7 +34,7 @@ public class StampAction {
     }
 
 
-    @RequestMapping("/griefgrocerystore/buy_stamp")
+    @RequestMapping("/griefgrocerystore/user/buy_stamp")
     public ModelAndView buy(int id, HttpSession session){
         ModelAndView mv=new ModelAndView("griefgrocerystore/user/user_buy");
         Stamp stamp=stampService.findStampByid(id);
@@ -46,7 +46,7 @@ public class StampAction {
         return mv;
     }
 
-    @RequestMapping("/griefgrocerystore/buy_stamp_do")
+    @RequestMapping("/griefgrocerystore/user/buy_stamp_do")
     public ModelAndView buy_do(Stamp stamp, HttpSession session, StampAndUser sau){
         ModelAndView mv=new ModelAndView("griefgrocerystore/result");
         //当前用户
@@ -77,12 +77,28 @@ public class StampAction {
                 }
             }
         }
-        String href = "/griefgrocerystore/shop.html";
+        String href = "/griefgrocerystore/user/shop.html";
         mv.addObject("msg", msg);
         mv.addObject("href", href);
         return mv;
     }
 
+    @RequestMapping("/griefgrocerystore/admin/stamp_list")
+    public ModelAndView stamp_list(String s_sn,String pageno){
+        ModelAndView mv=new ModelAndView("/griefgrocerystore/admin/admin_list_stamp");
+        long page=stampService.getPage(s_sn);
+        int page_no;
+        if(pageno!=null){
+            page_no=Integer.parseInt(pageno);
+        }else{
+            page_no=0;
+        }
+        List<Stamp> stamps
+                =stampService.getFindStamps(s_sn,page_no);
+        mv.addObject("stamps",stamps);
+        mv.addObject("spages",page);
+        return mv;
+    }
 
 
 }

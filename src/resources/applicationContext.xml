@@ -112,6 +112,13 @@
 					<property name="loginUrl" value="/tologin.html"></property>
 				</bean>
 			</mvc:interceptor>
+			<mvc:interceptor>
+				<mvc:mapping path="/griefgrocerystore/user/*.html" />
+				<mvc:mapping path="/griefgrocerystore/admin/*.html" />
+				<bean class="cn.edu.neusoft.core.interceptor.LoginInterrceptor">
+					<property name="loginPage" value="/index.html"/>
+				</bean>
+			</mvc:interceptor>
 		</mvc:interceptors>
         
 </beans>

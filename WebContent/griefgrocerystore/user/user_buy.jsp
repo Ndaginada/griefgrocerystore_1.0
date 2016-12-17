@@ -44,7 +44,7 @@
 <!-- ---------------------------------------------------------------邮票兑换---------------------------------------------------------------- -->
 <div id="gallery" class="gallery">
     <div class="container">
-        <form action="/griefgrocerystore/buy_stamp_do.html" >
+        <form action="/griefgrocerystore/user/buy_stamp_do.html" >
         <h3 style="color: snow">确认兑换</h3>
         <p class="ever" style="color: snow">点击确认按钮进行兑换</p>
             <pre>
@@ -74,7 +74,7 @@
             <button type="submit" class="btn  btn-success btn-lg">兑换</button>
         </div>
         <div class="col-xs-1" style="text-align: center">
-            <a href="/griefgrocerystore/shop.html" class="btn btn-danger btn-primary btn-lg">返回</a>
+            <a href="/griefgrocerystore/user/shop.html" class="btn btn-danger btn-primary btn-lg">返回</a>
         </div>
         </div>
     </form>
