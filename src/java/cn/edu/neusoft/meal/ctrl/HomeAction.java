@@ -7,10 +7,14 @@ import cn.edu.neusoft.meal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -37,7 +41,6 @@ public class HomeAction {
 		ModelAndView mv=new ModelAndView("griefgrocerystore/user/user_index");
 		List<Letter> leters
 				=letterService.getAllLetter();
-		System.out.print(leters.get(0).getLettername());
 		mv.addObject("letters",leters);
 		return mv;
 	}
@@ -92,19 +95,47 @@ public class HomeAction {
 	}
 
 	@RequestMapping("/griefgrocerystore/register")
-	public ModelAndView register(User user,HttpServletRequest request){
+	public ModelAndView register(User user,HttpServletRequest request,MultipartFile img){
 		ModelAndView mv=new ModelAndView("griefgrocerystore/result");
-		boolean s=userService.addUser(user);
-		String msg="";
-		if(s){
-			msg="注册成功";
-		}else{
-			msg="注册失败";
+		try {
+			String relativePath="/griefgrocerystore/images/icon";
+			String savePath = request.getServletContext().getRealPath(relativePath);
+			String filename = img.getOriginalFilename().substring(img.getOriginalFilename().indexOf("/") + 1);
+			// 创建保存的文件
+			File file = new File(savePath, filename);
+			user.setIcon(relativePath + "/" + filename);
+			img.transferTo(file);
+			boolean s=userService.addUser(user);
+			String msg="";
+			if(s){
+				msg="注册成功";
+			}else{
+				msg="注册失败";
+			}
+			String href = "/griefgrocerystore/beforReg.html";
+			mv.addObject("msg", msg);
+			mv.addObject("href", href);
+		} catch (IllegalStateException | IOException e) {
+			e.printStackTrace();
 		}
-		String href = request.getContextPath()+"/griefgrocerystore/beforReg.html";
-		mv.addObject("msg", msg);
-		mv.addObject("href", href);
 		return mv;
+	}
+
+	@RequestMapping("/griefgrocerystore/namecheck")
+	@ResponseBody
+	public String nameCheck(String username){
+		String res="";
+		List<User> users=userService.getAllUser();
+		for (User o:users){
+			if (o.getUserName().equals(username)||o.getUserName()==username){
+				res="已存在，请重新输入";
+				//如果存在则跳出循环
+				break;
+			}else {
+				res="恭喜，此用户名可以注册";
+			}
+		}
+          return res;
 	}
 
 	@RequestMapping("/griefgrocerystore/beforReg")

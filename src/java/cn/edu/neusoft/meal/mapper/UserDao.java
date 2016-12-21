@@ -28,4 +28,8 @@ public interface UserDao {
 	boolean subScore(User user);
 
 	boolean addScore(int user_id);
+
+	User findUserByName(String u_name);
+
+	List<User> getAllUser();
 }

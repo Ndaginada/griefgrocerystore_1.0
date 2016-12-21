@@ -2,12 +2,20 @@ package cn.edu.neusoft.meal.domain;
 
 public class User {
 	private int id,score;
-	private String userName,password,ident;
+	private String userName,password,ident,icon;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 
 	public int getScore() {

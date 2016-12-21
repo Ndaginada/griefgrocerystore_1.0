@@ -88,5 +88,15 @@ public class UserServiceImpl implements UserService {
 		return dao.addScore(user_id);
 	}
 
+	@Override
+	public User findUserByName(String belonguser) {
+		return dao.findUserByName(belonguser);
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		return dao.getAllUser();
+	}
+
 
 }

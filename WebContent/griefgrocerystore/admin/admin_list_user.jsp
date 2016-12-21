@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="del" tagdir="/WEB-INF/tags" %>
 <%@ page pageEncoding="UTF-8" import="java.util.*,cn.edu.neusoft.meal.domain.*" %>
 <!DOCTYPE html>
 <html>
@@ -35,7 +36,7 @@
 				<table class="table table-striped table-hover table-condensed">
 					<thead>
 						<tr>
-							<th>#</th><th>用户名</th><th>身份</th>
+							<th>#</th><th>用户名</th><th>身份</th><th>积分</th><th>用户头像</th>
 							<th>操作</th>
 						</tr>
 					</thead>
@@ -45,8 +46,10 @@
 									<th>${user.id}</th>
 									<td>${user.userName}</td>
 									<td><c:if test="${user.ident==1}">管理员</c:if><c:if test="${user.ident==0}">普通用户</c:if></td>
-									<%--<td>${user.telephone}</td>--%>
-									<%--<td>${user.address}</td>--%>
+									<td>${user.score}</td>
+									<td>
+										<img class="img-rounded" src="${user.icon}" width="200" height="200"/>
+									</td>
 									<td>
 										<a class="btn btn-xs btn-warning" data-toggle="tooltip" 
 										title="修改用户" href="user_edit_form.html?id=${user.id}"
@@ -87,23 +90,8 @@
 	</div>
 	<!--删除确认框-->
 	<div class="modal fade" id="delConfirmModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">删除确认</h4>
-				</div>
-				<div class="modal-body">
-					<h4 class="text-danger">确定要删除该用户吗？</h4>
-				</div>
-				<div class="modal-footer">
-					<input type="hidden" id="url" /> 
-					<button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal"
-					 onclick="delSubmit()">删除</button>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
+		<input type="hidden" id="url" />
+		<del:delcase/>
 	</div><!-- /.modal -->
 	<script>
 	function jumptopage(page){

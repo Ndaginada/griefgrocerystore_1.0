@@ -88,16 +88,11 @@
         {
             window.addEventListener('load',  iframeAutoFit,  false);
         }
-
-
         //-->
     </script>
 
 </head>
 <body style="width: 100%; padding: 0; margin: 0;">
-
-
-
 <table class="item replyPost" cellspacing="1" style="margin: 0; border: none;">
     <tr>
 
@@ -118,12 +113,7 @@
                     </c:forEach>
             <br/><br/><br/>
                     信件内容：<br/>
-                    <textarea name="lettercontext" rows="2" cols="20" id="tb_ReplyBody___Editor" style="height:290px;;width:100%;"></textarea><script language="javascript" type="text/javascript" src="/EditorControl/MzUBB/CsdnUbbEditor.js"></script><script type="text/javascript">/*<![CDATA[*/
-                var ubb = new CsdnUbbEditor("tb_ReplyBody___Editor");
-                ubb.contentLength = 8000;
-                ubb.helpLink = "/help/ubb.html";
-                ubb.render("fontsize|space|bold|italic|underline|strikethrough|color|code|space|url|email|image|space|left|center|right");
-                /*]]>*/</script>
+                    <textarea name="lettercontext" rows="2" cols="20" id="tb_ReplyBody___Editor" style="height:290px;;width:100%;"></textarea>
                     <br/><br/><br/><br/><br/><br/><br/><br/><br/>
                  <div class="submitRegion" style="padding: 8px 0">
                     <input type="submit" name="bt_Submit" value="提交信件" id="bt_Submit" class="button col-xs-3" />&nbsp;</div>

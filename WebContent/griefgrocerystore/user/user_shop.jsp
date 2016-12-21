@@ -55,8 +55,8 @@
 					<ul id="da-thumbs" class="da-thumbs">
 						<c:forEach items="${stamps}" var="stamp">
 						<li>
-							<a  href="/griefgrocerystore/user/buy_stamp.html?id=${stamp.stampid}" class="btn mask b-link-stripe b-animate-go   swipebox" title="">
-								<img src="${stamp.stamppc}" alt="" />
+							<a  href="/griefgrocerystore/user/buy_stamp.html?id=${stamp.stampid}" class="btn mask b-link-stripe b-animate-go   swipebox" title="" >
+								<img src="${stamp.stamppc}" alt="" width="200" height="200" />
 								<div>
 									<h5 >选择</h5>
 									<span>点击兑换</span>
@@ -70,27 +70,6 @@
 
 				</section>
 				<!--------------------------------------------------------------- 信纸兑换------------------------------------------------------ -->
-				<%--<div id="gallery" class="gallery">--%>
-					<%--<div class="container">--%>
-						<%--<h3>信纸专区</h3>--%>
-						<%--<p class="ever">在这里你可以使用积分兑换你所需要的东西</p>--%>
-						<%--<div class="gallery-grids">--%>
-							<%--<section>--%>
-								<%--<ul id="da-thumbs" class="da-thumbs">--%>
-									<%--<li>--%>
-										<%--<!-- 这里可以改点击图片后链接 -->--%>
-										<%--<a href="../images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox" title="">--%>
-											<%--<img src="../images/wan.png" alt="" />--%>
-											<%--<div>--%>
-												<%--<h5>选择</h5>--%>
-												<%--<span>点击兑换</span>--%>
-											<%--</div>--%>
-										<%--</a>--%>
-									<%--</li>--%>
-									<%--<div class="clearfix"> </div>--%>
-								<%--</ul>--%>
-
-							<%--</section>--%>
 				<!------------------------------------------------------------------- end---------------------------------------------------------------------------------->
 
 				<script type="text/javascript" src="/griefgrocerystore/js/jquery.hoverdir.js"></script>

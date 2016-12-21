@@ -27,4 +27,20 @@
         select count(*) as m from stamp
         WHERE stampname LIKE #{0}
     </select>
+    <select id="getMaxId" resultType="java.lang.Integer">
+        select max(stampid) from stamp
+    </select>
+    <insert id="addStamp" parameterType="cn.edu.neusoft.meal.domain.Stamp" >
+        INSERT INTO stamp VALUES (#{stampid}, #{stampname}, #{stamppc}, #{stampscore})
+    </insert>
+    <delete id="delStamp" parameterType="int" >
+        delete from stamp where stampid=#{id}
+    </delete>
+    <update id="editStamp" parameterType="cn.edu.neusoft.meal.domain.Stamp" >
+        update stamp set stampname=#{stampname},stampscore=#{stampscore}
+        <if test="stamppc!=null and stamppc!=''">
+            ,stamppc=#{stamppc}
+        </if>
+        WHERE stampid=#{stampid}
+    </update>
 </mapper>

@@ -24,4 +24,10 @@ public interface StampService {
     long getPage(String a_ln);
 
     List<Stamp> getFindStamps(String a_ln, int page_no);
+
+    boolean addStamp(Stamp stamp);
+
+    boolean delStamp(int id);
+
+    boolean editStamp(Stamp stamp);
 }

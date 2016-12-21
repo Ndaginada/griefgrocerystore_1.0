@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.neusoft.meal.mapper.ReplyDao">
+    <select id="getId" resultType="java.lang.Integer">
+        select max(id) from reply
+    </select>
+    <insert id="addReply" parameterType="cn.edu.neusoft.meal.domain.Reply">
+        INSERT INTO reply VALUES (#{id},#{content},#{letterid},#{replyuserid},#{belonguserid})
+    </insert>
+    <select id="getReplyByLetter" resultType="cn.edu.neusoft.meal.domain.Reply">
+        SELECT * FROM reply WHERE letterid=#{0}
+    </select>
+    <select id="getReplyByUser" resultType="cn.edu.neusoft.meal.domain.Reply">
+        SELECT * FROM reply WHERE replyuserid=#{0}
+    </select>
+    <select id="getReplyByBelongUser" resultType="cn.edu.neusoft.meal.domain.Reply">
+        SELECT * FROM reply WHERE belonguserid=#{0}
+    </select>
+    <select id="getAllReply" resultType="cn.edu.neusoft.meal.domain.Reply">
+        SELECT * FROM reply
+    </select>
+    <select id="getReplyCount" resultType="long">
+        select count(*) as m from reply
+        WHERE content LIKE #{0}
+    </select>
+    <select id="getFindReply" resultType="cn.edu.neusoft.meal.domain.Reply">
+        select * from reply
+        where content like #{0}
+        limit #{1},10
+    </select>
+    <delete id="delReply" parameterType="int" >
+        delete from reply where id=#{id}
+    </delete>
+</mapper>

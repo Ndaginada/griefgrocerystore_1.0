@@ -45,10 +45,6 @@
 			<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 			<div id="fh5co-logo">
 				<a  data-toggle="modal" data-target="#myModal2" class="btn">登录</a>
-				<!-- <a href="user_future.jsp">未来计算器<span>.</span></a>
-				<a href="user_chat.jsp">聊天机器人<span>.</span></a>
-				<a href="user_write.jsp">写信<span>.</span></a> -->
-
 			</div>
 			  
 		</div>

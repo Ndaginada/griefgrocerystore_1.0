@@ -86,6 +86,35 @@ public class StampImpl implements StampService{
         return dao.getFindStamps(a_ln,page_no);
     }
 
+    @Override
+    public boolean addStamp(Stamp stamp) {
+        int next=dao.getMaxId()+1;
+        stamp.setStampid(next);
+        if (dao.addStamp(stamp)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean delStamp(int id) {
+        if (dao.delStamp(id)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean editStamp(Stamp stamp) {
+        if (dao.editStamp(stamp)){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 
 //    @Override
 //    public boolean buyStamp(User user,) {

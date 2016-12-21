@@ -17,6 +17,7 @@
 	<!--jquery.validate-->
 	<script type="text/javascript" src="js/jquery.validate.min.js" ></script>
 	<script type="text/javascript" src="js/message.js" ></script>
+	<script src="/griefgrocerystore/user/checkUserName.js"></script>
 	<style type="text/css">
 		body{background: url(/griefgrocerystore/images/reg_bg.jpg) no-repeat;font-size: 16px ;}
 		.form{background: cornflowerblue;width:800px;margin:100px auto;}
@@ -31,13 +32,15 @@
 
 <div class="container">
 	<div class="form row">
-		<form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="register_form"  method="post" action="/griefgrocerystore/register.html">
+		<form class="form-horizontal col-sm-offset-3 col-md-offset-3" id="register_form"  method="post"
+			  action="/griefgrocerystore/register.html" enctype="multipart/form-data">
 			<h2 class="form-title">注    册</h2>
 			<div class="col-sm-9 col-md-9">
 				<!-- 用户名 -->
 				<div class="form-group">
 					<i class="fa fa-user fa-lg"></i>
-					<input class="form-control required" type="text" placeholder="Username" name="userName" autofocus="autofocus"  required="required" />
+					<input class="form-control required" type="text" placeholder="Username" id="username" name="userName" autofocus="autofocus"  required="required" />
+					<span id="checkuser" style="color: #cc2127"></span>
 				</div>
 				<!-- 密码 -->
 				<div class="form-group">
@@ -54,24 +57,10 @@
 					<i class="fa fa-envelope fa-lg"></i>
 					<input class="form-control eamil" type="text" placeholder="Email" name="email"/>
 				</div>
-
-				<%--<div class="form-group">--%>
-					<%--<i class="fa fa-envelope fa-lg"></i>--%>
-					<%--<input class="form-control eamil" type="text" placeholder="Email" name="email"/>--%>
-				<%--</div>--%>
-				<%--<div class="form-group">--%>
-					<%--<i class="fa fa-envelope fa-lg"></i>--%>
-					<%--<input class="form-control eamil" type="text" placeholder="Email" name="email"/>--%>
-				<%--</div>--%>
-				<%--<div class="form-group">--%>
-					<%--<i class="fa fa-envelope fa-lg"></i>--%>
-					<%--<input class="form-control eamil" type="text" placeholder="Email" name="email"/>--%>
-				<%--</div>--%>
-				<%--<div class="form-group">--%>
-					<%--<i class="fa fa-envelope fa-lg"></i>--%>
-					<%--<input class="form-control eamil" type="text" placeholder="Email" name="email"/>--%>
-				<%--</div>--%>
-
+				<div class="form-group">
+					<input type="file" id="img" name="img" />
+					<p class="help-block">请选择头像图片</p>
+				</div>
 				<div class="form-group">
 					<div class="col-xs-7">
 					<button type="submit" class="btn  btn-success btn-lg">注册</button>

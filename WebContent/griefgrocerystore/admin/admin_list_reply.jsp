@@ -1,37 +1,39 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="del" tagdir="/WEB-INF/tags" %>
-<%@ page pageEncoding="UTF-8"
+<%@ page pageEncoding="UTF-8" import="java.sql.*"
+import="java.util.*,cn.edu.neusoft.meal.domain.*"
  %>
 <!DOCTYPE html>
 <html>
 <head>
 	<jsp:include page="head.jsp">
-		<jsp:param value="邮票信息列表" name="title"/>
+		<jsp:param value="信件回复信息列表" name="title"/>
 	</jsp:include>
 </head>
 <body>
 	<jsp:include page="admin_nav.jsp">
-		<jsp:param value="stamp_s" name="fun"/>
+		<jsp:param value="reply_s" name="fun"/>
 	</jsp:include>
-
 	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-info">
 			<div class="panel-heading">
 				<form class="form-inline" role="search">
 					<div class="form-group">
-						<input class="form-control" type="text" name="s_sn" id="s_sn" value="${param.s_sn}" placeholder="按邮票名查询"  />
+						<input class="form-control" type="text" name="a_ln" id="a_ln" value="${param.a_ln}" placeholder="按回复内容查询" />
 					</div>
+					<%--<div class="form-group">--%>
+						<%--<input class="form-control" type="text" name="a_un" placeholder="按用户名查询" />--%>
+					<%--</div>--%>
 					<div class="form-group">
-						<button type="submit" class="btn btn-sm btn-info" data-toggle="tooltip" title="搜索邮票品">
+						<button type="submit" class="btn btn-sm btn-info" data-toggle="tooltip" title="搜索信件">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</button>
 					</div>
-
-					<div class="form-group pull-right">
-						<a class="btn btn-sm btn-success" data-toggle="tooltip" title="添加邮票" href="/griefgrocerystore/admin/stamp_add_form.html" role="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;添加邮票</a>
-					</div>
-
+					<%--<div class="form-group pull-right">--%>
+						<%--<a class="btn btn-sm btn-success" data-toggle="tooltip" title="添加菜品" href="food_add_form.html" role="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;添加菜品</a>--%>
+					<%--</div>--%>
 				</form>
 			</div>
 			<div class="panel-body">
@@ -42,13 +44,13 @@
 								#
 							</th>
 							<th>
-								邮票名
+								回复内容
 							</th>
 							<th>
-								邮票价格
+								回复者
 							</th>
 							<th>
-								邮票样式
+								回复的信件
 							</th>
 							<th>
 								操作
@@ -56,23 +58,22 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:forEach items="${stamps}" var="stamp">
+					<c:forEach items="${replys}" var="reply">
 						<tr>
 							<th>
-								${stamp.stampid}
+								${reply.id}
 							</th>
 							<td>
-								${stamp.stampname}
+								${reply.content}
 							</td>
 							<td>
-									${stamp.stampscore}分
+								<jsp:include page="/griefgrocerystore/user/reply_user_name.html"><jsp:param name="u_id" value="${reply.replyuserid}"/></jsp:include>
 							</td>
 							<td>
-								<img class="img-rounded" src="${stamp.stamppc}" />
+								<jsp:include page="/griefgrocerystore/user/reply_letter.html"><jsp:param name="l_id" value="${reply.letterid}"/></jsp:include>
 							</td>
 							<td>
-								<a class="btn btn-xs btn-warning" data-toggle="tooltip" title="修改邮票" href="/griefgrocerystore/admin/stamp_edit_form.html?id=${stamp.stampid}" role="button"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-								<button type="button" class="btn btn-xs btn-danger"  data-toggle="modal" data-toggle="tooltip" onclick="delConfirm('${stamp.stampid}')" title="删除邮票"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+								<button type="button" class="btn btn-xs btn-danger"  data-toggle="modal" data-toggle="tooltip" onclick="delConfirm('${reply.id}')" title="删除回复"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 							</td>
 						</tr>
 					</c:forEach>
@@ -85,7 +86,7 @@
 								<span aria-hidden="true">&laquo;</span>
 							</a>
 						</li>
-						<c:forEach begin="0" end="${spages-1}" var="i">
+						<c:forEach begin="0" end="${rpages-1}" var="i">
 							<li><a href="#" onclick="javascript:return jumptopage(${i})">${i+1}</a></li>
 						</c:forEach>
 						<li>
@@ -107,12 +108,12 @@
 	</div><!-- /.modal -->
 	<script>
         function jumptopage(page){
-            var keyword=$('#s_sn').val();
-            location.href="stamp_list.html?s_sn="+keyword+"&pageno="+page;
+            var keyword=$('#a_ln').val();
+            location.href="reply_list.html?a_ln="+keyword+"&pageno="+page;
             return false;
         }
 		function delConfirm(id){
-			$('#url').val('stamp_del.html?id='+id);
+			$('#url').val('reply_del.html?id='+id);
 			$('#delConfirmModal').modal();
 		}
 		function delSubmit(){

@@ -95,59 +95,28 @@
 			<p class="ever">这里有很多网友的信件，您可以选择在这里帮助网友解忧</p>
 			<div class="services-top">
 				<div class="col-md-6 services-top-left">
+					<c:forEach items="${letters}" var="letter">
+					<form action="/griefgrocerystore/user/reply.html">
+						<input type="hidden" name="replyuserid" value="${loginId}">
+						<input type="hidden" name="letterid" value="${letter.id}">
+						<input type="hidden" name="belonguser" value="${letter.belonguser}">
 					<div class="services-top-main">
 						<div class="col-md-6 services-left service-img">
-							<%--<a href="images/5.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">--%>
-								<%--<img src="../images/wan.png" alt="" class="img-responsive" />--%>
-							<%--</a>--%>
+							<a href="" class=" mask b-link-stripe b-animate-go   swipebox"  title="">
+								<img src="${letter.stamppc}" alt="" class="img-responsive" width="100" height="100" />
+							</a>
 						</div>
 						<div class="col-md-6 services-left">
-							<ul>
-							<c:forEach items="${letters}" var="letter">
-								<li class="mask b-link-stripe b-animate-go  swipebox" >${letter.lettername}</li>
-								<li class="mask b-link-stripe b-animate-go  swipebox" >${letter.lettercontext}</li>
-							</c:forEach>
-							</ul>
+							<h4>${letter.lettername}</h4><p>  By.${letter.belonguser}</p>
+							<span>${letter.lettercontext}</span>
+							<input type="text" name="content" class="form-control">
+							<button type="submit" class="btn btn-info">回复</button>
+							<a class="btn btn-danger" href="/griefgrocerystore/user/reply_look.html?l_id=${letter.id}&u_id=${loginId}">查看回复</a>
+							<div class="clearfix"></div>
 						</div>
-						<div class="clearfix"></div>
 					</div>
-
-					<%--<div class="services-top-main">--%>
-						<%--<div class="col-md-6 services-left service-img">--%>
-							<%--<a href="images/6.png" class=" mask b-link-stripe b-animate-go   swipebox"  title="">--%>
-								<%--<img src="../images/wan.png" alt="" class="img-responsive" />--%>
-							<%--</a>--%>
-						<%--</div>--%>
-						<%--<div class="col-md-6 services-left">--%>
-							<%--<h4>信件2</h4>--%>
-							<%--<p>机器人为您提供实时天气</p>--%>
-						<%--</div>--%>
-						<%--<div class="clearfix"></div>--%>
-					<%--</div>--%>
-				<%--</div>--%>
-				<%--<div class="col-md-6 services-top-left">--%>
-					<%--<div class="services-top-main">--%>
-						<%--<div class="col-md-6 services-left service-img">--%>
-							<%--<a href="../images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox" title="">--%>
-								<%--<img src="../images/wan.png" alt="" class="img-responsive" />--%>
-							<%--</a>--%>
-						<%--</div>--%>
-						<%--<div class="col-md-6 services-left">--%>
-							<%--<h4>信件3</h4>--%>
-							<%--<p>相信笑话可以使你开心</p>--%>
-						<%--</div>--%>
-						<%--<div class="clearfix"></div>--%>
-					<%--</div>--%>
-					<%--<div class="services-top-main">--%>
-						<%--<div class="col-md-6 services-left service-img">--%>
-							<%--<a href="../images/wan.png" class=" mask b-link-stripe b-animate-go   swipebox" title="">--%>
-								<%--<img src="../images/wan.png" alt="" class="img-responsive" />--%>
-							<%--</a>--%>
-						<%--</div>--%>
-						<%--<div class="col-md-6 services-left">--%>
-							<%--<h4>信件4</h4>--%>
-							<%--<p>再也不用打开浏览器</p>--%>
-						<%--</div>--%>
+					</form>
+						</c:forEach>
 						<div class="clearfix"></div>
 					</div>
 				</div>

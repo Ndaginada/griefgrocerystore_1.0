@@ -23,4 +23,8 @@ public interface UserService {
     long getPage(String s_un);
 
     boolean adddScore(int user_id);
+
+    User findUserByName(String belonguser);
+
+    List<User> getAllUser();
 }

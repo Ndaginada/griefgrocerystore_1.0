@@ -17,4 +17,12 @@ public interface StampDao {
     long getStampCount(String a_ln);
 
     List<Stamp> getFindStamps(String a_ln, int page_no);
+
+    int getMaxId();
+
+    boolean addStamp(Stamp stamp);
+
+    boolean delStamp(int id);
+
+    boolean editStamp(Stamp stamp);
 }

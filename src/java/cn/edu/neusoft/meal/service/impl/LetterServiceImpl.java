@@ -20,6 +20,8 @@ public class LetterServiceImpl implements LetterService {
     private LetterAndUserDao rdao;
 
 
+
+
     @Override
     public boolean addletter(Letter letter, LetterAndUser lau) {
         int next=dao.getMaxId()+1;

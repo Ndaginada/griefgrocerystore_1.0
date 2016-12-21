@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="del" tagdir="/WEB-INF/tags" %>
 <%@ page pageEncoding="UTF-8" import="java.sql.*"
 import="java.util.*,cn.edu.neusoft.meal.domain.*"
  %>
@@ -107,26 +108,11 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 	</div><!--ending container-->
 	<!--删除确认框-->
 	<div class="modal fade" id="delConfirmModal">
-	      <input type="hidden" id="url" /> 
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">删除确认</h4>
-				</div>
-				<div class="modal-body">
-					<h4 class="text-danger">确定要删除该信件吗？</h4>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">放弃</button>
-					<button type="button" onclick="delSubmit()" class="btn btn-primary" data-dismiss="modal">删除</button>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
+	      <input type="hidden" id="url" />
+		<del:delcase/>
 	</div><!-- /.modal -->
 	<script>
         function jumptopage(page){
-
             var keyword=$('#a_ln').val();
             location.href="letter_list.html?a_ln="+keyword+"&pageno="+page;
             return false;

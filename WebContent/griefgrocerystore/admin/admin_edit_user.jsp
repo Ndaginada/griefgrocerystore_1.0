@@ -54,19 +54,14 @@
 						<input type="radio" name="ident" value="1"  <c:if test="${user.ident==1}">checked</c:if> />管理员
 					</label>
 				</div>
-				<%--<div class="form-group">--%>
-					<%--<label for="telphone">--%>
-						<%--<span class="glyphicon glyphicon-earphone"></span> 电话--%>
-					<%--</label>--%>
-					<%--<input type="number" class="form-control" id="telphone"	name="telephone"	required="required"  value="${user.telephone}"/>--%>
-				<%--</div>--%>
-				<%--<div class="form-group">--%>
-					<%--<label for="address">--%>
-						<%--<span class="glyphicon glyphicon-globe"></span> 地址--%>
-					<%--</label>--%>
-					<%--<input type="text" class="form-control" id="address" name="address"--%>
-					<%--required="required"  value="${user.address}"/>--%>
-				<%--</div>--%>
+
+				<div class="form-group">
+					<label>
+						<span class="glyphicon glyphicon-globe"></span> 头像
+					</label>
+					<img class="img-rounded" alt="Bootstrap Image Preview" src="${user.icon}" width="200" height="200" />
+				</div>
+				<div class="form-group">
 			</div>
 			<div class="panel-footer text-center">
 				<button type="submit" class="btn btn-warning">确认修改</button>&nbsp;&nbsp;

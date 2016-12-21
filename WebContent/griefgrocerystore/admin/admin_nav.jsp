@@ -17,6 +17,8 @@
 					<a href="/griefgrocerystore/admin/letter_list.html">信件管理</a></li>
 					<li class="<c:if test="${param.fun=='stamp_s'}">active</c:if>">
 					<a href="/griefgrocerystore/admin/stamp_list.html">邮票管理</a></li>
+					<li class="<c:if test="${param.fun=='reply_s'}">active</c:if>">
+					<a href="/griefgrocerystore/admin/reply_list.html">回复管理</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">

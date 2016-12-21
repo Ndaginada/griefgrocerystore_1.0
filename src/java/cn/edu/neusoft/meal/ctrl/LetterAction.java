@@ -1,10 +1,8 @@
 package cn.edu.neusoft.meal.ctrl;
 
-import cn.edu.neusoft.meal.domain.Letter;
-import cn.edu.neusoft.meal.domain.LetterAndUser;
-import cn.edu.neusoft.meal.domain.Stamp;
-import cn.edu.neusoft.meal.domain.User;
+import cn.edu.neusoft.meal.domain.*;
 import cn.edu.neusoft.meal.service.LetterService;
+import cn.edu.neusoft.meal.service.ReplyService;
 import cn.edu.neusoft.meal.service.StampService;
 import cn.edu.neusoft.meal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +22,9 @@ public class LetterAction {
 	private UserService userService;
 	@Autowired
 	private StampService stampService;
+	@Autowired
+	private ReplyService replyService;
+
 
 	@RequestMapping("/griefgrocerystore/user/writeletter")
 	public ModelAndView write(HttpSession session){
@@ -33,6 +34,7 @@ public class LetterAction {
 		mv.addObject("usersstamps",stamps);
 		return mv;
 	}
+
 
 	@RequestMapping("/griefgrocerystore/user/writeletter_do")
 	public ModelAndView write_do(Letter letter,int user_id,LetterAndUser lau){
@@ -57,9 +59,13 @@ public class LetterAction {
 		String u_name= (String) session.getAttribute("loginName");
 //		System.out.print("###########"+u_name);
 		List<Letter> letters=letterService.getFindLetterByUser(u_name);
-//		System.out.print("###########"+letters.get(0).getLettercontext());
 		int u_id= (int) session.getAttribute("loginId");
 		User user=userService.findUserbByid(u_id);
+//		System.out.print("###########"+user.getIcon());
+		List<Reply> replys=replyService.getReplyByBelongUser(u_id);
+		if (replys!=null){
+			mv.addObject("replys",replys);
+		}
 		mv.addObject("letters",letters);
 		mv.addObject("user",user);
 		return mv;
@@ -123,4 +129,6 @@ public class LetterAction {
 		mv.addObject("href", href);
 		return mv;
 	}
+
+
 }

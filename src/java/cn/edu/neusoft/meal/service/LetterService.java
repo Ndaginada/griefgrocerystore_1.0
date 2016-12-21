@@ -2,6 +2,7 @@ package cn.edu.neusoft.meal.service;
 
 import cn.edu.neusoft.meal.domain.Letter;
 import cn.edu.neusoft.meal.domain.LetterAndUser;
+import cn.edu.neusoft.meal.domain.Reply;
 
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface LetterService {
     long getPage(String a_ln);
 
     boolean editLetter(Letter letter);
+
+
 }

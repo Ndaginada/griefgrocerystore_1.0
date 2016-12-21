@@ -15,13 +15,23 @@ select * from user where username=#{userName} and password=#{password}
          WHERE userName like #{0}
      limit #{1},5
  </select>
+
+    <select id="getAllUser" resultType="cn.edu.neusoft.meal.domain.User">
+        SELECT * FROM user
+    </select>
+
     <select id="findUserByLeter"
             resultType="cn.edu.neusoft.meal.domain.User"
     >
        SELECT * FROM user WHERE id=(SELECT userid FROM letteranduser WHERE letterid=#{l_id})
     </select>
+    <select id="findUserByName"
+            resultType="cn.edu.neusoft.meal.domain.User"
+    >
+        SELECT * FROM user WHERE userName=#{0}
+    </select>
     <insert id="addUser" parameterType="cn.edu.neusoft.meal.domain.User">
-      INSERT INTO user VALUES (#{id},#{password},#{userName},0)
+      INSERT INTO user VALUES (#{id},#{password},#{userName},0,0,#{icon})
     </insert>
     <select id="getMaxId" resultType="java.lang.Integer">
         select max(id) from user
