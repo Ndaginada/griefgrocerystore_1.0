@@ -10,16 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
-/**
- * Created by Kkai on 2016/12/8.
- */
 
 @Controller
 public class StampAction {
@@ -56,9 +51,8 @@ public class StampAction {
         //当前用户
         int u_id= (int) session.getAttribute("loginId");
         User user=userService.findUserbByid(u_id);
-        //获得用户所拥有的东西
+        //获得用户所拥有的
         List<StampAndUser> find=stampService.findStampAndUser(u_id);
-
         sau.setUserid(u_id);
         sau.setStampid(stamp.getStampid());
         String msg="";

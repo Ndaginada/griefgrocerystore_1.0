@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="del" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="mytag" tagdir="/WEB-INF/tags" %>
 <%@ page pageEncoding="UTF-8" import="java.util.*,cn.edu.neusoft.meal.domain.*" %>
 <!DOCTYPE html>
 <html>
@@ -84,30 +84,14 @@
 					</ul>
 				</nav>
 			</div>
-			</div><!--ending panel-->
+			</div>
 		</div>
-	</div><!--ending 2th row-->
 	</div>
-	<!--删除确认框-->
-	<div class="modal fade" id="delConfirmModal">
-		<input type="hidden" id="url" />
-		<del:delcase/>
-	</div><!-- /.modal -->
-	<script>
-	function jumptopage(page){
-		
-		var keyword=$('#s_un').val();
-		location.href="user_list.html?s_un="+keyword+"&pageno="+page;
-		return false;
-	}
-    function delConfirm(id){
-        $('#url').val('user_del.html?id='+id);
-        $('#delConfirmModal').modal();
-    }
+	</div>
 
-		function delSubmit(){
-			location.replace($('#url').val());
-		}
-	</script>
+		<mytag:delcase url="user_del.html"/>
+
+        <mytag:jumptopage url="user_list.html" keyword="s_un"/>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="del" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="mytag" tagdir="/WEB-INF/tags" %>
 <%@ page pageEncoding="UTF-8"
  %>
 <!DOCTYPE html>
@@ -27,11 +27,9 @@
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</button>
 					</div>
-
 					<div class="form-group pull-right">
 						<a class="btn btn-sm btn-success" data-toggle="tooltip" title="添加邮票" href="/griefgrocerystore/admin/stamp_add_form.html" role="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;添加邮票</a>
 					</div>
-
 				</form>
 			</div>
 			<div class="panel-body">
@@ -96,28 +94,13 @@
 					</ul>
 				</nav>
 			</div>
-			</div><!--ending panel-->
+			</div>
 		</div>
-	</div><!--ending 2th row-->
-	</div><!--ending container-->
-	<!--删除确认框-->
-	<div class="modal fade" id="delConfirmModal">
-	      <input type="hidden" id="url" />
-		<del:delcase/>
-	</div><!-- /.modal -->
-	<script>
-        function jumptopage(page){
-            var keyword=$('#s_sn').val();
-            location.href="stamp_list.html?s_sn="+keyword+"&pageno="+page;
-            return false;
-        }
-		function delConfirm(id){
-			$('#url').val('stamp_del.html?id='+id);
-			$('#delConfirmModal').modal();
-		}
-		function delSubmit(){
-			location.replace($('#url').val());
-		}
-	</script>
+	</div>
+	</div>
+
+		<mytag:delcase url="stamp_del.html"/>
+	    <mytag:jumptopage url="stamp_list.html" keyword="s_sn"/>
+
 </body>
 </html>

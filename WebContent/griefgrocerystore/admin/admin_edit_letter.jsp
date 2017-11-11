@@ -9,7 +9,7 @@
 </head>
 <body>
 <jsp:include page="admin_nav.jsp">
-    <jsp:param value="food_m" name="fun"/>
+    <jsp:param value="letter_m" name="fun"/>
 </jsp:include>
 <div class="row">
     <div class="col-md-2"></div>

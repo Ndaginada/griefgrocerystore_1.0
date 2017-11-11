@@ -84,8 +84,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean adddScore(int user_id) {
-		return dao.addScore(user_id);
+	public boolean adddScore(int user_id,int score) {
+		return dao.addScore(user_id,score);
 	}
 
 	@Override

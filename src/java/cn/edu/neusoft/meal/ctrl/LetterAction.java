@@ -40,9 +40,10 @@ public class LetterAction {
 	public ModelAndView write_do(Letter letter,int user_id,LetterAndUser lau){
 		ModelAndView mv=new ModelAndView("/griefgrocerystore/result");
 		lau.setUserid(user_id);
-		boolean s=letterService.addletter(letter,lau);
+		boolean addletter=letterService.addletter(letter,lau);
+		boolean addscore=userService.adddScore(user_id,10);
 		String msg="";
-		if(s&&userService.adddScore(user_id)){
+		if(addletter&&addscore){
 			msg="提交成功";
 		}else{
 			msg="提交失败";
@@ -65,6 +66,10 @@ public class LetterAction {
 		List<Reply> replys=replyService.getReplyByBelongUser(u_id);
 		if (replys!=null){
 			mv.addObject("replys",replys);
+		}
+		List<Reply> sendreplys=replyService.getReplyByUser(u_id);
+		if (sendreplys!=null){
+			mv.addObject("sendreplys",sendreplys);
 		}
 		mv.addObject("letters",letters);
 		mv.addObject("user",user);
@@ -113,7 +118,7 @@ public class LetterAction {
 	}
 
 	@RequestMapping("/griefgrocerystore/admin/letter_del")
-	public ModelAndView delUser(HttpServletRequest request,LetterAndUser lau){
+	public ModelAndView delLetter(HttpServletRequest request,LetterAndUser lau){
 		ModelAndView mv=new ModelAndView("griefgrocerystore/result");
 		int del_id= Integer.parseInt(request.getParameter("id"));
 		lau.setLetterid(del_id);
@@ -125,6 +130,24 @@ public class LetterAction {
 			msg="删除失败";
 		}
 		String href = request.getContextPath()+"/griefgrocerystore/admin/letter_list.html";
+		mv.addObject("msg", msg);
+		mv.addObject("href", href);
+		return mv;
+	}
+
+	@RequestMapping("/griefgrocerystore/user/letter_del")
+	public ModelAndView UserdelLetter(HttpServletRequest request,LetterAndUser lau){
+		ModelAndView mv=new ModelAndView("griefgrocerystore/result");
+		int del_id= Integer.parseInt(request.getParameter("id"));
+		lau.setLetterid(del_id);
+		boolean s=letterService.delletter(lau);
+		String msg="";
+		if(s){
+			msg="删除成功";
+		}else{
+			msg="删除失败";
+		}
+		String href = request.getContextPath()+"/griefgrocerystore/user/my_info.html";
 		mv.addObject("msg", msg);
 		mv.addObject("href", href);
 		return mv;

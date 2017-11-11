@@ -29,9 +29,10 @@ public class ReplyAction {
         ModelAndView mv=new ModelAndView("/griefgrocerystore/result");
         User user=userService.findUserByName(belonguser);
         reply.setBelonguserid(user.getId());
-        boolean s=replyService.addReply(reply);
+        boolean addreply=replyService.addReply(reply);
+        boolean addscore=userService.adddScore(reply.getReplyuserid(),2);
         String msg="";
-        if(s){
+        if(addreply&&addscore){
             msg="回复成功";
         }else{
             msg="回复失败";
@@ -95,7 +96,7 @@ public class ReplyAction {
     }
 
     @RequestMapping("/griefgrocerystore/admin/reply_del")
-    public ModelAndView delUser(int id){
+    public ModelAndView delReply(int id){
         ModelAndView mv=new ModelAndView("griefgrocerystore/result");
         boolean s=replyService.delReply(id);
         String msg="";
@@ -109,4 +110,21 @@ public class ReplyAction {
         mv.addObject("href", href);
         return mv;
     }
+
+    @RequestMapping("/griefgrocerystore/user/reply_del.html")
+    public ModelAndView UserdelReply(int id){
+        ModelAndView mv=new ModelAndView("griefgrocerystore/result");
+        boolean s=replyService.delReply(id);
+        String msg="";
+        if(s){
+            msg="删除成功";
+        }else{
+            msg="删除失败";
+        }
+        String href = "/griefgrocerystore/user/my_info.html";
+        mv.addObject("msg", msg);
+        mv.addObject("href", href);
+        return mv;
+    }
+
 }

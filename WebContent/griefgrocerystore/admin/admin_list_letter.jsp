@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@taglib prefix="del" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="mytag" tagdir="/WEB-INF/tags" %>
 <%@ page pageEncoding="UTF-8" import="java.sql.*"
 import="java.util.*,cn.edu.neusoft.meal.domain.*"
  %>
@@ -24,17 +24,11 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 					<div class="form-group">
 						<input class="form-control" type="text" name="a_ln" id="a_ln" value="${param.a_ln}" placeholder="按信件名查询" />
 					</div>
-					<%--<div class="form-group">--%>
-						<%--<input class="form-control" type="text" name="a_un" placeholder="按用户名查询" />--%>
-					<%--</div>--%>
 					<div class="form-group">
 						<button type="submit" class="btn btn-sm btn-info" data-toggle="tooltip" title="搜索信件">
 							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
 						</button>
 					</div>
-					<%--<div class="form-group pull-right">--%>
-						<%--<a class="btn btn-sm btn-success" data-toggle="tooltip" title="添加菜品" href="food_add_form.html" role="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>&nbsp;添加菜品</a>--%>
-					<%--</div>--%>
 				</form>
 			</div>
 			<div class="panel-body">
@@ -77,7 +71,6 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 							<td>
 								<a class="btn btn-xs btn-warning" data-toggle="tooltip" title="修改信件" href="letter_edit_form.html?id=${letter.id}" role="button">
 									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-
 								<button type="button" class="btn btn-xs btn-danger"  data-toggle="modal" data-toggle="tooltip" onclick="delConfirm('${letter.id}')" title="删除信件"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 							</td>
 						</tr>
@@ -107,23 +100,7 @@ import="java.util.*,cn.edu.neusoft.meal.domain.*"
 	</div><!--ending 2th row-->
 	</div><!--ending container-->
 	<!--删除确认框-->
-	<div class="modal fade" id="delConfirmModal">
-	      <input type="hidden" id="url" />
-		<del:delcase/>
-	</div><!-- /.modal -->
-	<script>
-        function jumptopage(page){
-            var keyword=$('#a_ln').val();
-            location.href="letter_list.html?a_ln="+keyword+"&pageno="+page;
-            return false;
-        }
-		function delConfirm(id){
-			$('#url').val('letter_del.html?id='+id);
-			$('#delConfirmModal').modal();
-		}
-		function delSubmit(){
-			location.replace($('#url').val());
-		}
-	</script>
+    <mytag:delcase url="letter_del.html"/>
+	<mytag:jumptopage url="letter_list.html" keyword="a_ln"/>
 </body>
 </html>

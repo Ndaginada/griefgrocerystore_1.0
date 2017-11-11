@@ -27,7 +27,7 @@ public interface UserDao {
 
 	boolean subScore(User user);
 
-	boolean addScore(int user_id);
+	boolean addScore(int user_id,int score);
 
 	User findUserByName(String u_name);
 

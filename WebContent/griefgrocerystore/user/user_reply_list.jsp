@@ -19,7 +19,7 @@
     <h4 style="text-align: center">笔者：${letter.belonguser}</h4>
     <p style="font-size:large;text-indent: 2em;">${letter.lettercontext}</p>
       <c:forEach var="reply" items="${replys}">
-          <div class="row">
+          <div class="row" id="${reply.id}">
               <div class="panel panel-default">
                   <div class="panel-body">
      <div class="col-xs-2">
@@ -39,7 +39,9 @@
 		 <input type="hidden" name="letterid" value="${letter.id}">
             <input type="hidden" name="belonguser" value="${letter.belonguser}">
         <textarea name="content" rows="2" cols="20" id="tb_ReplyBody___Editor" style="height:290px;;width:100%;"></textarea>
+            <div class="col-xs-4">
             <button type="submit" class="btn btn-info btn-lg">回复</button>
+            </div>
             <a href="/griefgrocerystore/user/hello.html" class="btn-lg btn btn-danger">返回</a>
         </form>
     </pre>

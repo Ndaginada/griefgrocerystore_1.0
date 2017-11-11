@@ -22,7 +22,7 @@ public interface UserService {
 
     long getPage(String s_un);
 
-    boolean adddScore(int user_id);
+    boolean adddScore(int user_id,int score);
 
     User findUserByName(String belonguser);
 

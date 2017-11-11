@@ -31,7 +31,7 @@ select * from user where username=#{userName} and password=#{password}
         SELECT * FROM user WHERE userName=#{0}
     </select>
     <insert id="addUser" parameterType="cn.edu.neusoft.meal.domain.User">
-      INSERT INTO user VALUES (#{id},#{password},#{userName},0,0,#{icon})
+      INSERT INTO user VALUES (#{id},#{password},#{userName},0,50,#{icon})
     </insert>
     <select id="getMaxId" resultType="java.lang.Integer">
         select max(id) from user
@@ -58,9 +58,9 @@ select * from user where username=#{userName} and password=#{password}
         WHERE id=#{id}
     </update>
 
-    <update id="addScore" parameterType="java.lang.Integer">
-        UPDATE user SET score=score+5
-        WHERE id=#{user_id}
+    <update id="addScore">
+        UPDATE user SET score=score+#{1}
+        WHERE id=#{0}
     </update>
 
 </mapper>
